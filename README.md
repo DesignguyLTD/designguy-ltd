@@ -1,4 +1,3 @@
----
 
 ```markdown
 # My React + TypeScript App
