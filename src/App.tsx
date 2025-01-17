@@ -7,7 +7,7 @@ function App() {
     <>
       <div>
 
-        <a href="/" target="_blank">
+        <a href="https://designguyltd.github.io/designguy-ltd/" target="_blank">
           <img src={viteLogo} className="logo react" alt="React logo" />
         </a>
       </div>
