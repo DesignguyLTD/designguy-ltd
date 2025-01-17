@@ -1,5 +1,3 @@
-Here's a comprehensive `README.md` for your Vite React + TypeScript project deployed to GitHub Pages:
-
 ---
 
 ```markdown
