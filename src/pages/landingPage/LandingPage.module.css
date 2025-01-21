@@ -164,7 +164,7 @@
 
 .isSticky {
     position: sticky;
-    top: 98px;
+    top: 100px;
     height: fit-content;
 }
 
@@ -226,7 +226,7 @@
     }
     .isSticky {
         position: sticky;
-        top: 110px;
+        top: 100px;
         height: fit-content;
     }
 
@@ -336,7 +336,7 @@
 
     .isSticky {
         position: sticky;
-        top: 116px;
+        top: 100px;
         height: fit-content;
     }
 
