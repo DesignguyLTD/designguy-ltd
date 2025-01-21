@@ -16,10 +16,9 @@ const Header = () => {
             setIsMenuOpen(true);
         }
     };
-
     return (
         <nav className={navStyle.ctn}>
-            <div className={navStyle.Logo}>
+            <div className={navStyle.Logo} onClick={()=> window.location.href = '#/'}>
                 <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273910/DesignGuy-Ltd/19th%20Jan/vite_kwvrnl.svg" alt="logo" />
             </div>
             <div className={navStyle.middleNav}>
@@ -44,7 +43,10 @@ const Header = () => {
 
                     <div className={navStyle.menuItemCtn}>
                         <ul>
-                            <li>FAQs</li>
+                            <li onClick={()=> {
+                                window.location.href = '#/faq';
+                                toggleMenu();
+                            } }>FAQs</li>
                             <li>Contact Us</li>
                             <li>About Us</li>
 

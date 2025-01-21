@@ -1,6 +1,6 @@
 .faqContainer {
     width: 70%;
-    margin: 8% auto;
+    margin: 100px auto;
     font-family: Arial, sans-serif;
 }
 
@@ -117,7 +117,11 @@
 }
 
 @media (min-width: 768px) {
-
+    .faqContainer {
+        width: 70%;
+        margin: 120px auto;
+        font-family: Arial, sans-serif;
+    }
     .faqHeaderText{
         color: rgb(100, 100, 100);
         font-family: Montserrat;
@@ -136,12 +140,6 @@
         letter-spacing: 0;
         text-align: center;
         width: 80%;
-    }
-    .faqContainer {
-        width: 70%;
-        margin: 8% auto;
-
-        font-family: Arial, sans-serif;
     }
 
     .title {
@@ -224,4 +222,20 @@
         text-align: left;
     }
 
+}
+
+@media (min-width: 1024px) {
+    .faqContainer {
+        width: 70%;
+        margin: 150px auto;
+        font-family: Arial, sans-serif;
+    }
+}
+
+@media (min-width: 1440px) {
+    .faqContainer {
+        width: 70%;
+        margin: 170px auto;
+        font-family: Arial, sans-serif;
+    }
 }

@@ -54,7 +54,7 @@ const FAQ: React.FC = () => {
     };
 
     return (
-        <div className={styles.faqContainer}>
+        <div  className={styles.faqContainer}>
             <h1 className={styles.title}>Frequently Asked Questions</h1>
             <div className={styles.faqList}>
                 {faqItems.map((item, index) => (
