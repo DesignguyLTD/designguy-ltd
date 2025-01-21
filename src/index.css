@@ -10,3 +10,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+::-webkit-scrollbar {
+  cursor: pointer;
+  height: 3px;
+  width: 3px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #006eff;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #001631;
+  border-radius: 20px;
+}
