@@ -1,8 +1,9 @@
 .LandingContainer {
     color: black;
-    width: 70%;
+    width: 100%;
     margin: 100px auto;
     font-family: Arial, sans-serif;
+    padding: 10px;
 }
 
 .heroCtn1{
@@ -11,6 +12,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
     flex-direction: column;
 }
 
@@ -89,21 +91,334 @@
     width: 100%;
 }
 
+.whatWeDoCard {
+    background: rgb(0, 74, 124);
+    color: white;
+    width: 100%;
+    padding: 32px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /*gap: 32px;*/
+    padding: 40px 0;
+    justify-content: center;
+}
+
+.cardTitle {
+    /*color: rgb(0, 0, 0);*/
+    font-family: Impact;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 44.5px;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.cardTitlemarketingCard{
+    color: rgb(255, 255, 255);
+}
+.cardTitlegraphicsCard{
+    color: rgb(3, 3, 3);
+}
+
+.cardTitlesocialCard{
+    color: rgb(3, 3, 3);
+
+}
+
+.cardTitlevideoCard{
+    color: rgb(3, 3, 3);
+
+}
+
+.cardDescription {
+    /*color: rgb(34, 34, 34);*/
+    font-family: Montserrat;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.pageContainer {
+    min-height: 100vh;
+    background-color: white;
+}
+
+.mainContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+.stickySection {
+    transition: all 0.3s ease;
+}
+
+.isSticky {
+    position: sticky;
+    top: 98px;
+    height: fit-content;
+}
+
+.scrollingSections {
+    display: flex;
+    flex-direction: column;
+    /*gap: 32px;*/
+    padding-bottom: 64px;
+}
+
+/* Cards */
+.card {
+    padding: 32px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+
+.graphicsCard {
+    background-color: #ffffff;
+}
+
+.marketingCard {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.socialCard {
+    background-color: #f3f4f6;
+}
+
+.videoCard {
+    background-color: #fbbf24;
+}
+
+/* Typography */
+.mainTitle {
+    color: rgb(255, 255, 255);
+    font-family: Impact;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.flexcard img{
+    display: none;
+}
 
 @media (min-width: 768px) {
+    .flexcard img{
+        display: inline;
+        width: 200px;
+    }
+    .isSticky {
+        position: sticky;
+        top: 110px;
+        height: fit-content;
+    }
+
+    .whatWeDoCard {
+        background: rgb(0, 74, 124);
+        color: white;
+        /*width: 40%;*/
+        padding: 32px;
+    }
+    .grid {
+        grid-template-columns: 1fr auto;
+    }
+
+    .heroCtn2{
+        margin: 70px auto;
+    }
     .LandingContainer {
-        width: 70%;
+        width: 100%;
         margin: 120px auto;
+        padding: 30px;
         font-family: Arial, sans-serif;
     }
+
+    .heroText{
+        color: rgb(0, 0, 0);
+        font-family: Impact;
+        font-size: 77.65px;
+        font-weight: 400;
+        line-height: 77.79px;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .heroImg1{
+        width: 57px;
+        height: 57px;
+        position: absolute;
+        top: 7px;
+        left: -28px;
+    }
+
+    .heroImg2{
+        width: 57px;
+        height: 57px;
+        position: absolute;
+        right: -83px;
+        bottom: 39px;
+    }
+
+    .heroImg3{
+        width: 57px;
+        height: 57px;
+        position: absolute;
+        bottom: -18px;
+        left: -89px;
+    }
+
+    .heroCTAText{
+        width: 77%;
+        color: rgb(0, 0, 0);
+        font-family: Montserrat;
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+
+    .cardTitle{
+        /*color: rgb(255, 255, 255);*/
+        font-family: Impact;
+        font-size: 67.5px;
+        font-weight: 400;
+        line-height: 66.75px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .cardDescription{
+        /*color: rgb(34, 34, 34);*/
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+
+    .flexcard{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .flexcardblend{
+        mix-blend-mode: multiply;
+    }
+
 }
 
 @media (min-width: 1024px) {
+
+    .isSticky {
+        position: sticky;
+        top: 116px;
+        height: fit-content;
+    }
+
+    .flexcard img{
+        display: inline;
+        width: 380px;
+    }
+
     .LandingContainer {
-        width: 70%;
+        width: 100%;
+        padding: 0 20px;
         margin: 150px auto;
         font-family: Arial, sans-serif;
     }
+
+    .heroCTACtn{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .heroCTAText{
+        text-align: left;
+    }
+
+    .heroCTABtn{
+        display: inline-flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .heroText{
+        color: rgb(0, 0, 0);
+        font-family: Impact;
+        font-size: 137.7px;
+        font-weight: 400;
+        line-height: 137px;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .heroImg1{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: -12px;
+        left: -141px;
+    }
+
+    .heroImg2{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        right: -236px;
+        bottom: 70px;
+    }
+
+    .heroImg3{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        bottom: -40px;
+        left: -245px;
+    }
+
+    .heroCTAText{
+        width: 100%;
+        color: rgb(0, 0, 0);
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
 }
 
 @media (min-width: 1440px) {
@@ -113,3 +428,73 @@
         font-family: Arial, sans-serif;
     }
 }
+
+
+
+/**/
+
+
+/*.mainDescription {*/
+/*    font-size: 1.125rem;*/
+/*    line-height: 1.6;*/
+/*}*/
+
+
+
+/* Icon Grid */
+.iconGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.iconBox {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .mainContainer {
+        padding: 0 16px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .mainTitle {
+        font-size: 2rem;
+    }
+
+    /*.cardTitle {*/
+    /*    font-size: 1.5rem;*/
+    /*}*/
+
+    .iconGrid {
+        gap: 12px;
+    }
+
+    .iconBox {
+        padding: 12px;
+    }
+}
+
+/* Dark mode support */
+/*@media (prefers-color-scheme: dark) {*/
+/*    .graphicsCard,*/
+/*    .socialCard {*/
+/*        background-color: #374151;*/
+/*        color: white;*/
+/*    }*/
+/*}*/
