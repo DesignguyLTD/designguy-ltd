@@ -80,17 +80,27 @@ const Pricing = () => {
                 </div>
 
                 <div className={pricingStyle.details}>
-                    <h3>{selectedPlan.name} Pack</h3>
-                    <p>Here is the detailed information or receipt for the plan you picked:</p>
-                    <ul>
-                        {selectedPlan.features.map((feature, index) =>
-                            feature ? <li key={index}>{features[index]}</li> : null
-                        )}
-                    </ul>
-                    <div className={pricingStyle.total}>
-                        ${selectedPlan.price.toFixed(2)}/project
+                    <div className={pricingStyle.detailsHeader}>
+                        <h3>{selectedPlan.name} Pack</h3>
+                        <div className={pricingStyle.total}>
+                            ${selectedPlan.price.toFixed(2)} <span>/project</span>
+                        </div>
                     </div>
-                    <button className={pricingStyle.confirm}>Confirm Order</button>
+
+                    <p>Here is the detailed <br/> information or receipt <br/>for the plan you picked:</p>
+
+                   <hr style={{ border: "1px solid #ddd", margin: "20px 0" }}/>
+
+                    <div className={pricingStyle.detailsfooter}>
+                        <ul>
+                            {selectedPlan.features.map((feature, index) =>
+                                feature ? <li key={index}><img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737658493/DesignGuy-Ltd/23rd%20jan/check_1_zn3iq9.svg" alt="check"/>{features[index]}</li> : null
+                            )}
+                        </ul>
+
+                        <button className={pricingStyle.confirm}>Confirm Order <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273906/DesignGuy-Ltd/19th%20Jan/aVector_zz8bwx.svg" alt="next"/></button>
+                    </div>
+
                 </div>
             </div>
 
@@ -100,7 +110,7 @@ const Pricing = () => {
                 </div>
 
                 <p className={styles.faqSubText}>
-                    Graphics Design Use powerful yet familiar tools to create your ultimate website design. Import your
+                Graphics Design Use powerful yet familiar tools to create your ultimate website design. Import your
                     designs from Figma. Use powerful yet familiar tools to create your ultimate website design.
                 </p>
 
