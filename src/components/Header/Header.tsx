@@ -54,7 +54,10 @@ const Header = () => {
 
                         <ul>
                             <li>Work</li>
-                            <li>Pricing</li>
+                            <li onClick={()=> {
+                                window.location.href = '#/pricing';
+                                toggleMenu();
+                            } }>Pricing</li>
                         </ul>
                     </div>
 

@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Footer from './components/footer/footer'
 import FAQ from './pages/FAQ/FAQ';
 import LandingPage from "./pages/landingPage/LandingPage";
+import Pricing from "./pages/Pricing/Pricing";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
               <Routes>
                   <Route path="/"  element={<LandingPage/>}/>
                   <Route path="/faq" element={  <FAQ/>}/>
+                  <Route path='/pricing' element={<Pricing/>}/>
               </Routes>
           </Router>
 
