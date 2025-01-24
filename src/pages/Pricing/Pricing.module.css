@@ -169,6 +169,190 @@
     color: #007bff;
 }
 
+
+
+
+.features {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.toggle button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.toggle .active {
+    background-color: #007bff;
+    color: white;
+}
+
+.details {
+    grid-column: span 2;
+    padding: 20px;
+    background: rgb(59, 59, 59);
+    border-radius: 8px;
+}
+
+
+
+.details p{
+    color: rgb(255, 255, 255);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 145%;
+    letter-spacing: 0;
+    text-align: left;
+    margin: 2% auto;
+}
+
+
+.detailsHeader{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+
+.plans {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.plan {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.plan:hover {
+    border-color: #007bff;
+}
+
+.activePlan {
+    box-sizing: border-box;
+    border: 1.25px solid rgb(255, 255, 255);
+    border-radius: 10.02px;
+    background: rgb(0, 153, 255);
+    color: white;
+}
+
+
+
+
+/**/
+
+.activePlan .planName span{
+    color: rgb(255, 255, 255);
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 24px;
+    padding: 2px 6px;
+    background: rgb(0, 93, 155);
+}
+
+.planName span{
+    color: rgb(21, 108, 254);
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 24px;
+    padding: 2px 6px;
+    background: rgb(218, 232, 255);
+}
+
+.planName {
+    color: rgb(16, 23, 51);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.activePlan .planName {
+    color: rgb(255, 255, 255);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.planPrice {
+    margin-top: 10px;
+    color: rgb(77, 77, 77);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: right;
+}
+
+.activePlan .planPrice {
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: right;
+}
+
+.planPrice span{
+    color: rgb(77, 77, 77);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+.activePlan .planPrice span{
+    color: rgb(255, 255, 255);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+
 @media (min-width: 768px) {
 
 
@@ -342,6 +526,94 @@
         letter-spacing: 0;
         text-align: left;
     }
+
+    .activePlan .planName span{
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 17.54px;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 0;
+        text-align: center;
+        border-radius: 6.27px;
+        padding: 3px 8px;
+        background: rgb(0, 93, 155);
+    }
+
+    .planName span{
+        color: rgb(21, 108, 254);
+        font-family: Inter;
+        font-size: 17.54px;
+        font-weight: 500;
+        line-height: 21px;
+        letter-spacing: 0;
+        text-align: center;
+        border-radius: 6.27px;
+        padding: 3px 8px;
+        background: rgb(218, 232, 255);
+    }
+
+    .planName {
+        color: rgb(16, 23, 51);
+        font-family: Inter;
+        font-size: 22.56px;
+        font-weight: 600;
+        line-height: 40px;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .activePlan .planName {
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 22.56px;
+        font-weight: 600;
+        line-height: 40px;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .planPrice {
+        margin-top: 10px;
+        color: rgb(77, 77, 77);
+        font-family: Inter;
+        font-size: 27.57px;
+        font-weight: 600;
+        line-height: 33px;
+        letter-spacing: 0%;
+        text-align: right;
+    }
+
+    .activePlan .planPrice {
+        margin-top: 10px;
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 27.57px;
+        font-weight: 600;
+        line-height: 33px;
+        letter-spacing: 0%;
+        text-align: right;
+    }
+
+    .planPrice span{
+        color: rgb(130, 130, 130);
+        font-family: Inter;
+        font-size: 20.05px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: right;
+    }
+
+    .activePlan .planPrice span{
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 20.05px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: right;
+    }
 }
 
 @media (min-width: 1440px) {
@@ -351,184 +623,6 @@
 
 
 /**/
-
-
-
-.features {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.toggle {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.toggle button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #f0f0f0;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.toggle .active {
-    background-color: #007bff;
-    color: white;
-}
-
-
-
-
-
-.plans {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.plan {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    justify-content: space-around;
-}
-
-.plan:hover {
-    border-color: #007bff;
-}
-
-.activePlan {
-    box-sizing: border-box;
-    border: 1.25px solid rgb(255, 255, 255);
-    border-radius: 10.02px;
-    background: rgb(0, 153, 255);
-    color: white;
-}
-
-.activePlan .planName span{
-    color: rgb(255, 255, 255);
-    font-family: Inter;
-    font-size: 17.54px;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0;
-    text-align: center;
-    border-radius: 6.27px;
-    padding: 3px 8px;
-    background: rgb(0, 93, 155);
-}
-
-.planName span{
-    color: rgb(21, 108, 254);
-    font-family: Inter;
-    font-size: 17.54px;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0;
-    text-align: center;
-    border-radius: 6.27px;
-    padding: 3px 8px;
-    background: rgb(218, 232, 255);
-}
-
-.planName {
-    color: rgb(16, 23, 51);
-    font-family: Inter;
-    font-size: 22.56px;
-    font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 0;
-    text-align: left;
-}
-
-.activePlan .planName {
-    color: rgb(255, 255, 255);
-    font-family: Inter;
-    font-size: 22.56px;
-    font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 0;
-    text-align: left;
-}
-
-.planPrice {
-    margin-top: 10px;
-    color: rgb(77, 77, 77);
-    font-family: Inter;
-    font-size: 27.57px;
-    font-weight: 600;
-    line-height: 33px;
-    letter-spacing: 0%;
-    text-align: right;
-}
-
-.activePlan .planPrice {
-    margin-top: 10px;
-    color: rgb(255, 255, 255);
-    font-family: Inter;
-    font-size: 27.57px;
-    font-weight: 600;
-    line-height: 33px;
-    letter-spacing: 0%;
-    text-align: right;
-}
-
-.planPrice span{
-    color: rgb(130, 130, 130);
-    font-family: Inter;
-    font-size: 20.05px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0%;
-    text-align: right;
-}
-
-.activePlan .planPrice span{
-    color: rgb(255, 255, 255);
-    font-family: Inter;
-    font-size: 20.05px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0%;
-    text-align: right;
-}
-
-.details {
-    grid-column: span 2;
-    padding: 20px;
-    background: rgb(59, 59, 59);
-    border-radius: 8px;
-}
-
-
-
-.details p{
-    color: rgb(255, 255, 255);
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 145%;
-    letter-spacing: 0;
-    text-align: left;
-    margin: 2% auto;
-}
-
-
-.detailsHeader{
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
 
 
 
