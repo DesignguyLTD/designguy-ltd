@@ -24,7 +24,9 @@ const Header = () => {
             <div className={navStyle.middleNav}>
                 <li className={navStyle.middleNavLi}>About Us</li>
                 <li className={navStyle.middleNavLi}>Work</li>
-                <li className={navStyle.middleNavLi}>Pricing</li>
+                <li className={navStyle.middleNavLi} onClick={()=> {
+                    window.location.href = '#/pricing';
+                } }>Pricing</li>
             </div>
 
             <div className={navStyle.menu} onClick={toggleMenu}>

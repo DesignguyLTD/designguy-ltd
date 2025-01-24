@@ -68,12 +68,16 @@ const Pricing = () => {
                             onClick={() => setSelectedPlan(plan)}
                         >
                             <div className={pricingStyle.planName}>
-                                {plan.name} <span>{plan.savings} Savings</span>
+                                {plan.name} <br/><span>{plan.savings} Savings</span>
                             </div>
                             <div className={pricingStyle.planPrice}>
-                                Total: ${plan.price.toFixed(2)}
-                                <br/>
-                                Sub-Total: ${plan.subtotal.toFixed(2)}
+                                <span>
+                                    Total
+                                </span> <br/> ${plan.price.toFixed(2)}
+                            </div>
+
+                            <div className={pricingStyle.planPrice}>
+                                <span> Sub-Total </span><br/> ${plan.subtotal.toFixed(2)}
                             </div>
                         </div>
                     ))}
