@@ -89,8 +89,10 @@ const LandingPage = () => {
                     their brand visibility in their field
                 </p>
                 <div className={landingStyle.heroCTABtn}>
-                    <ButtonI/>
-                    <ButtonII/>
+                    <ButtonI />
+                    <ButtonII onClick={()=> {
+                        window.location.href = '#/pricing';
+                    } }/>
                 </div>
             </div>
 

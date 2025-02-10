@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, Montserrat, satoshi, Impact, Poppins, sans-serif;
+  font-family: Inter, Montserrat, satoshi, Impact, Poppins,Verdana ,sans-serif;
   line-height: 1.5;
   font-weight: 400;
   /*color-scheme: light dark;*/
@@ -14,8 +14,8 @@
 
 ::-webkit-scrollbar {
   cursor: pointer;
-  height: 3px;
-  width: 3px;
+  height: 5px;
+  width: 5px;
 }
 
 

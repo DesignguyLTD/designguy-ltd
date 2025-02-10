@@ -185,16 +185,24 @@
 }
 
 .toggle button {
-    padding: 10px 20px;
+    padding: 5px 10px;
     border: none;
-    background-color: #f0f0f0;
+    background-color: transparent;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 24px;
+    margin: 3px;
+    color: rgb(0, 0, 0);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0;
+    text-align: center;
 }
 
 .toggle .active {
-    background-color: #007bff;
-    color: white;
+    background-color: #FFEA01;
+    color: black;
 }
 
 .details {
@@ -352,6 +360,16 @@
     text-align: right;
 }
 
+.toggleDuration{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1.29px solid rgb(203, 203, 203);
+    border-radius: 23.22px;
+    background: rgb(255, 255, 255);
+}
 
 @media (min-width: 768px) {
 

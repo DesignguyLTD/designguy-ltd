@@ -22,7 +22,11 @@ const Header = () => {
                 <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273910/DesignGuy-Ltd/19th%20Jan/vite_kwvrnl.svg" alt="logo" />
             </div>
             <div className={navStyle.middleNav}>
-                <li className={navStyle.middleNavLi}>About Us</li>
+                <li className={navStyle.middleNavLi}
+                    onClick={()=> {
+                        window.location.href = '#/about-us';
+                    } }
+                >About Us</li>
                 <li className={navStyle.middleNavLi}>Work</li>
                 <li className={navStyle.middleNavLi} onClick={()=> {
                     window.location.href = '#/pricing';
@@ -50,7 +54,11 @@ const Header = () => {
                                 toggleMenu();
                             } }>FAQs</li>
                             <li>Contact Us</li>
-                            <li>About Us</li>
+                            <li onClick={()=> {
+                                window.location.href = '#/about-us';
+                                toggleMenu();
+
+                            } }>About Us</li>
 
                         </ul>
 

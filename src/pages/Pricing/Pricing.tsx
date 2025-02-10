@@ -41,8 +41,11 @@ const Pricing = () => {
             <div className={pricingStyle.container}>
                 <div className={pricingStyle.features}>
                     <div className={pricingStyle.toggle}>
-                        <button className={pricingStyle.active}>Monthly</button>
-                        <button>Yearly</button>
+                        <div className={pricingStyle.toggleDuration}>
+                            <button className={pricingStyle.active}>Monthly</button>
+                            <button className={pricingStyle.active2}>Yearly</button>
+                        </div>
+
                     </div>
                     {features.map((feature, index) => (
                         <div key={index} className={pricingStyle.feature}>

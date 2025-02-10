@@ -1,0 +1,71 @@
+.cont{
+   padding: 20px;
+margin: 10px auto;
+width: 100%;
+text-align: center;
+}
+
+.col{
+    color: black;
+
+}
+
+.Herocont{
+    max-width: 100%;
+    width: 1400px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 100px;
+}
+
+.Herotextcont{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.Heroimgcont img{
+    width: 300px;
+    /*height: 300px;*/
+
+}
+
+@media (min-width: 768px) {
+    .Herotextcont {
+        padding: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        /*gap: 20px;*/
+    }
+    .Heroimgcont img{
+        width: 400px;
+        /*height: 300px;*/
+
+    }
+    .Herocont{
+        max-width: 100%;
+        width: 1400px;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 100px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .Heroimgcont img{
+        width: 600px;
+        /*height: 300px;*/
+
+    }
+}
