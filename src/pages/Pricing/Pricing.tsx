@@ -5,10 +5,10 @@ import ButtonI from '../../components/Buttons/ButtonI';
 
 const Pricing = () => {
     const plans = [
-        { name: "Lite", price: 160.56, subtotal: 150.15, savings: "5%", features: [true, true, false, false, false, false] },
-        { name: "Economy", price: 370.56, subtotal: 370.56, savings: "0%", features: [true, true, true, true, false, false] },
-        { name: "Business", price: 756.56, subtotal: 752.15, savings: "30%", features: [true, true, true, true, true, false] },
-        { name: "Premium", price: 1050.56, subtotal: 1050.15, savings: "30%", features: [true, true, true, true, true, true] },
+        { name: "Lite", price: 120000, subtotal: 278988, savings: "43%", features: [true, true, false, false, false, false] },
+        { name: "Economy", price: 250000, subtotal: 504988, savings: "49.5%", features: [true, true, true, true, false, false] },
+        { name: "Business", price: 550000, subtotal: 1033980, savings: "54%", features: [true, true, true, true, true, false] },
+        { name: "Premium", price: 995000, subtotal: 1784960, savings: "57.7%", features: [true, true, true, true, true, true] },
     ];
 
     const features = [
@@ -39,29 +39,29 @@ const Pricing = () => {
             </div>
 
             <div className={pricingStyle.container}>
-                <div className={pricingStyle.features}>
-                    <div className={pricingStyle.toggle}>
-                        <div className={pricingStyle.toggleDuration}>
-                            <button className={pricingStyle.active}>Monthly</button>
-                            <button className={pricingStyle.active2}>Yearly</button>
-                        </div>
+                {/*<div className={pricingStyle.features}>*/}
+                {/*    <div className={pricingStyle.toggle}>*/}
+                {/*        <div className={pricingStyle.toggleDuration}>*/}
+                {/*            <button className={pricingStyle.active}>Monthly</button>*/}
+                {/*            <button className={pricingStyle.active2}>Yearly</button>*/}
+                {/*        </div>*/}
 
-                    </div>
-                    {features.map((feature, index) => (
-                        <div key={index} className={pricingStyle.feature}>
-                            <span>{feature}</span>
-                            {selectedPlan.features[index] ? (
-                                <span className={pricingStyle.check}><img
-                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737654228/DesignGuy-Ltd/23rd%20jan/No_czu56h.svg"
-                                    alt="check"/></span>
-                            ) : (
-                                <span className={pricingStyle.cross}><img
-                                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737654229/DesignGuy-Ltd/23rd%20jan/x-circle_1_iiich8.svg"
-                                    alt="cross"/></span>
-                            )}
-                        </div>
-                    ))}
-                </div>
+                {/*    </div>*/}
+                {/*    {features.map((feature, index) => (*/}
+                {/*        <div key={index} className={pricingStyle.feature}>*/}
+                {/*            <span>{feature}</span>*/}
+                {/*            {selectedPlan.features[index] ? (*/}
+                {/*                <span className={pricingStyle.check}><img*/}
+                {/*                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737654228/DesignGuy-Ltd/23rd%20jan/No_czu56h.svg"*/}
+                {/*                    alt="check"/></span>*/}
+                {/*            ) : (*/}
+                {/*                <span className={pricingStyle.cross}><img*/}
+                {/*                    src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737654229/DesignGuy-Ltd/23rd%20jan/x-circle_1_iiich8.svg"*/}
+                {/*                    alt="cross"/></span>*/}
+                {/*            )}*/}
+                {/*        </div>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
 
                 <div className={pricingStyle.plans}>
                     {plans.map((plan) => (
@@ -71,16 +71,16 @@ const Pricing = () => {
                             onClick={() => setSelectedPlan(plan)}
                         >
                             <div className={pricingStyle.planName}>
-                                {plan.name} <br/><span>{plan.savings} Savings</span>
+                                {plan.name} <br/><span>{plan.savings} off</span>
                             </div>
                             <div className={pricingStyle.planPrice}>
                                 <span>
                                     Total
-                                </span> <br/> ${plan.price.toFixed(2)}
-                            </div>
+                                </span> <br/>
+                                <s>₦{plan.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</s>                            </div>
 
-                            <div className={pricingStyle.planPrice}>
-                                <span> Sub-Total </span><br/> ${plan.subtotal.toFixed(2)}
+                            <div className={pricingStyle.planPrice2}>
+                                <span> Discount </span><br/><div></div> ₦{plan.subtotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             </div>
                         </div>
                     ))}
@@ -90,7 +90,7 @@ const Pricing = () => {
                     <div className={pricingStyle.detailsHeader}>
                         <h3>{selectedPlan.name} Pack</h3>
                         <div className={pricingStyle.total}>
-                            ${selectedPlan.price.toFixed(2)} <span>/project</span>
+                            ₦{selectedPlan.subtotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} <span>/project</span>
                         </div>
                     </div>
 

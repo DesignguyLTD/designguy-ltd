@@ -85,8 +85,7 @@ const LandingPage = () => {
 
             <div className={landingStyle.heroCTACtn}>
                 <p className={landingStyle.heroCTAText}>
-                    We have crafted ideas, products and experiences for reputable organizations in order to increase
-                    their brand visibility in their field
+                    Our firm specializes in the development of innovative ideas, products, and experiences designed to enhance brand visibility for reputable organizations within their respective fields.
                 </p>
                 <div className={landingStyle.heroCTABtn}>
                     <ButtonI />
