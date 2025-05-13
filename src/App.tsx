@@ -8,9 +8,24 @@ import FAQ from './pages/FAQ/FAQ';
 import LandingPage from "./pages/landingPage/LandingPage";
 import Pricing from "./pages/Pricing/Pricing";
 import About from "./pages/About/About";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import {useEffect} from "react"; // You can also use <link> for styles
+
+
 
 function App() {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: false,    // Whether animation should happen only once
+        });
+    }, []);
 
+    useEffect(() => {
+        // After data is fetched or state changes
+        AOS.refresh();
+    }, []);
   return (
     <>
         <Header/>

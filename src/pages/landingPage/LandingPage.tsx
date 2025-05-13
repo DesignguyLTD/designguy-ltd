@@ -60,9 +60,9 @@ const LandingPage = () => {
     }, [logos.length]);
 
     return (
-        <div className={landingStyle.LandingContainer}>
+        <div className={landingStyle.LandingContainer}  data-aos="fade-up">
 
-            <div className={landingStyle.heroCtn1}>
+            <div   data-aos="fade-down" className={landingStyle.heroCtn1}>
                 <div className={landingStyle.heroCtn2}>
                     <br/>
                     <img className={landingStyle.heroImg1}
@@ -83,7 +83,7 @@ const LandingPage = () => {
                 </div>
             </div>
 
-            <div className={landingStyle.heroCTACtn}>
+            <div   data-aos="fade-up" className={landingStyle.heroCTACtn}>
                 <p className={landingStyle.heroCTAText}>
                     Our firm specializes in the development of innovative ideas, products, and experiences designed to enhance brand visibility for reputable organizations within their respective fields.
                 </p>
@@ -95,7 +95,7 @@ const LandingPage = () => {
                 </div>
             </div>
 
-            <div className={landingStyle.pageContainer}>
+            <div   data-aos="fade-up" className={landingStyle.pageContainer}>
                 <div ref={containerRef} className={landingStyle.mainContainer}>
                     <div className={landingStyle.grid}>
                         {/* Sticky Section */}
@@ -109,7 +109,7 @@ const LandingPage = () => {
                         </div>
 
                         {/* Scrolling Sections */}
-                        <div className={landingStyle.scrollingSections}>
+                        <div className={landingStyle.scrollingSections}   data-aos="fade-up">
                             {/* Graphics Design Section */}
                             <div className={`${landingStyle.card} ${landingStyle.graphicsCard}`}>
                                 <div className={landingStyle.flexcard}>
@@ -133,7 +133,7 @@ const LandingPage = () => {
                             </div>
 
                             {/* Digital Marketing Section */}
-                            <div className={`${landingStyle.card} ${landingStyle.marketingCard}`}>
+                            <div className={`${landingStyle.card} ${landingStyle.marketingCard}`}   data-aos="fade-up">
                                 <div className={landingStyle.flexcard}>
                                     <div>
                                         <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlemarketingCard}`}>DIGITAL <br/>
@@ -155,7 +155,7 @@ const LandingPage = () => {
                             </div>
 
                             {/* Social Media Management Section */}
-                            <div className={`${landingStyle.card} ${landingStyle.socialCard}`}>
+                            <div className={`${landingStyle.card} ${landingStyle.socialCard}`}  data-aos="fade-up">
                                 <div className={landingStyle.flexcard}>
                                     <div>
                                         <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlesocialCard}`}>SOCIAL
@@ -176,7 +176,7 @@ const LandingPage = () => {
                             </div>
 
                             {/* Video Editing Section */}
-                            <div className={`${landingStyle.card} ${landingStyle.videoCard}`}>
+                            <div className={`${landingStyle.card} ${landingStyle.videoCard}`}   data-aos="fade-up">
                                 <div className={landingStyle.flexcard}>
                                     <div>
                                         <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlevideoCard}`}>VIDEO <br/> EDITING
@@ -200,7 +200,7 @@ const LandingPage = () => {
                 </div>
             </div>
 
-            <div className={landingStyle.CaseStudyCtn}>
+            <div  className={landingStyle.CaseStudyCtn}   data-aos="fade-up">
                 <div className={landingStyle.whatWeDoCtn}>
                     <div className={`${landingStyle.cardTitle} ${landingStyle.whatWeDoText}`}>
                         WE DO <br/> GREAT WORK
@@ -229,7 +229,7 @@ const LandingPage = () => {
                 <div className={landingStyle.wrapper}>
 
 
-                    <div className={landingStyle.sliderContainer}>
+                    <div   data-aos="fade-up" className={landingStyle.sliderContainer}>
                         <div
                             className={landingStyle.slider}
                             style={{
@@ -263,7 +263,7 @@ const LandingPage = () => {
                 </div>
             </div>
 
-            <div className={styles.faqCTA}>
+            <div className={styles.faqCTA}   data-aos="fade-up">
                 <div className={styles.faqHeaderText}>
                     Begin your Brand Journey with us
                 </div>

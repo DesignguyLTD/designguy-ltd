@@ -1,0 +1,293 @@
+.pricingContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 724px;
+    margin: 0 auto;
+    gap: 12px;
+    font-family: 'Montserrat','Inter', sans-serif;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 16px;
+    border: 2px solid #0091FF;
+    padding: 16px 20px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.option:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #0091FF;
+}
+
+.option.selected {
+    border: 1px solid #0091FF;
+    background-color: #0068B5;
+    color: white;
+
+}
+
+.option:hover .priceLabel,
+.option:hover .originalPrice,
+.option:hover .discountPrice ,
+.option:hover .optionName{
+    color: white;
+}
+
+
+.selected .priceLabel,
+.selected .originalPrice,
+.selected .discountPrice {
+    color: white;
+}
+
+.option:hover .discountTag,
+.option.selected .discountTag {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+    /*.option.lite {*/
+/*    background-color: white;*/
+/*}*/
+
+/*.option.economy {*/
+/*    !*background-color: #0091FF;*!*/
+/*    color: white;*/
+/*}*/
+
+/*.option.premium {*/
+/*    background-color: #0068B5;*/
+/*    color: white;*/
+/*}*/
+
+.optionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.selectionArea {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.radioButton {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #DDE2E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+/*.economy .radioButton,*/
+/*.premium .radioButton {*/
+/*    border-color: white;*/
+/*}*/
+
+.radioButton.checked {
+    border-color: #0091FF;
+}
+
+/*.economy .radioButton.checked,*/
+/*.premium .radioButton.checked {*/
+/*    border-color: white;*/
+/*}*/
+
+.innerCircle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #0091FF;
+}
+
+/*.economy .innerCircle,*/
+/*.premium .innerCircle {*/
+/*    background-color: white;*/
+/*}*/
+
+.optionName {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.discountTag {
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background-color: #0091FF;
+}
+
+/*.economy .discountTag,*/
+/*.premium .discountTag {*/
+/*    background-color: rgba(255, 255, 255, 0.2);*/
+/*}*/
+
+.priceInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.priceSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.priceLabel {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+/*.economy .priceLabel,*/
+/*.premium .priceLabel {*/
+/*    color: rgba(255, 255, 255, 0.7);*/
+/*}*/
+
+.originalPrice {
+    font-size: 16px;
+    color: #666;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+/*.economy .originalPrice,*/
+/*.premium .originalPrice {*/
+/*    color: rgba(255, 255, 255, 0.8);*/
+/*}*/
+
+.discountPrice {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0091FF;
+}
+
+/*.economy .discountPrice,*/
+/*.premium .discountPrice {*/
+/*    color: white;*/
+/*}*/
+
+/* Business package styles */
+.businessPackage {
+    background-color: #0091FF;
+    border-radius: 16px;
+    padding: 16px 20px;
+    color: white;
+}
+
+.businessHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.backButton {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 100px;
+    color: white;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease;
+    font-weight: 500;
+}
+
+.backButton:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.servicesList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.serviceItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.serviceName {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.servicePrice {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.frequency {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.businessPricing {
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 16px;
+}
+
+.businessTotal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.totalLabel {
+    font-size: 15px;
+}
+
+.totalAmount {
+    font-size: 16px;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.businessDiscount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discountLabel {
+    font-size: 15px;
+}
+
+.discountAmount {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.packageNote {
+    margin-top: 16px;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.noteLabel {
+    font-weight: 600;
+}

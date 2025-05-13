@@ -3,7 +3,7 @@ import landingStyle from '../../pages/landingPage/LandingPage.module.css'
 
 const CaseStudy = ({fleximgae}: {fleximgae: string}) => {
     return (
-        <div className={landingStyle.CaseStudyIndividualCtn}>
+        <div  data-aos-delay="2000" data-aos="fade-up" className={landingStyle.CaseStudyIndividualCtn}>
             <div className={landingStyle.CaseStudyflexImg}>
                 <img src={fleximgae} alt="flexImage" style={{width: '100%', height: 'auto'}}/>
             </div>

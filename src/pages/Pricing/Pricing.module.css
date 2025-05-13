@@ -243,7 +243,7 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    margin: 0 auto;
+    margin: 5% auto;
 }
 
 .plan {
@@ -271,11 +271,33 @@
 }
 
 
+.SelectPlan{
+    color: white;
+    box-sizing: border-box;
+    border: 1.29px solid rgb(203, 203, 203);
+    border-radius: 23.22px;
+    background: rgb(2, 56, 129);
+}
+
+
 
 
 /**/
 
 .activePlan .planName span{
+    color: rgb(255, 255, 255);
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 24px;
+    padding: 2px 6px;
+    background: rgb(0, 93, 155);
+}
+
+.SelectPlan .planName span{
     color: rgb(255, 255, 255);
     font-family: Montserrat;
     font-size: 10px;
@@ -308,6 +330,16 @@
     font-weight: 600;
     line-height: 26px;
     letter-spacing: 0%;
+    text-align: left;
+}
+
+.activePlan .planName {
+    color: rgb(255, 255, 255);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0;
     text-align: left;
 }
 
