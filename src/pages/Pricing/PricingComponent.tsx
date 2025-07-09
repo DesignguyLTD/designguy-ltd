@@ -194,10 +194,16 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
 
     return (
         <div className={styles.pricingContainer}>
-            {openPackageDetails && selectedOption ?
-                renderPackageDetails() :
-                options.map(option => renderOption(option))
-            }
+            {options.map(option => {
+                const isSelected = selectedOption === option.id && openPackageDetails;
+                return isSelected ? (
+                    <div key={option.id} className={`${styles.option} ${styles.selected2} ${styles[option.id.toLowerCase()]}`}>
+                        {currentPackage === option.id.toLowerCase() && renderPackageDetails()}
+                    </div>
+                ) : (
+                    renderOption(option)
+                );
+            })}
         </div>
     );
 };
