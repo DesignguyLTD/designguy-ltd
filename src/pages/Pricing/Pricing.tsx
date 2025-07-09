@@ -3,6 +3,7 @@ import  pricingStyle from './Pricing.module.css'
 import styles from '../../pages/FAQ/FAQ.module.css'
 import ButtonI from '../../components/Buttons/ButtonI';
 import PricingComponent from "./PricingComponent.tsx";
+import stylesAbout from "../About/About.module.css";
 
 const Pricing = () => {
     const plans = [
@@ -109,8 +110,8 @@ const Pricing = () => {
     };
 
     return (
-        <div data-aos-delay="300" data-aos="fade-up" className={pricingStyle.Ctn}>
-            <div  data-aos-delay="300" data-aos="fade-down" className={pricingStyle.PricingHeroCtn}>
+        <div data-aos-delay="100" data-aos="fade-up" className={pricingStyle.Ctn}>
+            <div  data-aos-delay="100" data-aos="fade-down" className={pricingStyle.PricingHeroCtn}>
                 <div className={pricingStyle.PricingHeroTextCtn}>
                     <h1 className={pricingStyle.PricingHeroHeaderText}>Ready to get <br/>started</h1>
                     <p className={pricingStyle.PricingHeroSubText}>Choose the plan that’s right for your business.
@@ -149,7 +150,7 @@ const Pricing = () => {
                 {/*    ))}*/}
                 {/*</div>*/}
 
-                <div  data-aos-delay="300" data-aos="fade-up" className={pricingStyle.plans}>
+                <div  data-aos-delay="100" data-aos="fade-up" className={pricingStyle.plans}>
                     {/*{plans.map((plan) => (*/}
                     {/*    <div*/}
                     {/*        key={plan.name}*/}
@@ -182,7 +183,7 @@ const Pricing = () => {
                     />
                 </div>
 
-                <div  data-aos-delay="300" data-aos="fade-up" className={pricingStyle.details}>
+                <div  data-aos-delay="100" data-aos="fade-up" className={pricingStyle.details}>
                     <div className={pricingStyle.detailsHeader}>
                         <h3>{selectedPlan.name} Pack</h3>
                         <div className={pricingStyle.total}>
@@ -208,18 +209,18 @@ const Pricing = () => {
                 </div>
             </div>
 
-            <div  data-aos-delay="300" data-aos="fade-up" className={styles.faqCTA}>
-                <div className={styles.faqHeaderText}>
-                    Begin your Brand Journey with us
+                <div data-aos-delay="100" data-aos="fade-up" className={`${styles.faqCTA} ${stylesAbout.ctaSection}`}>
+                    <div className={styles.faqHeaderText}>
+                        Begin your Brand Journey with us
+                    </div>
+
+                    <p className={styles.faqSubText}>
+                        Let's transform your vision into compelling visual narratives. Our expert team is ready to elevate
+                        your brand with cutting-edge design solutions tailored to your specific needs.
+                    </p>
+
+                    <ButtonI text="Start a Project" />
                 </div>
-
-                <p className={styles.faqSubText}>
-                Graphics Design Use powerful yet familiar tools to create your ultimate website design. Import your
-                    designs from Figma. Use powerful yet familiar tools to create your ultimate website design.
-                </p>
-
-                <ButtonI/>
-            </div>
 
         </div>
     );

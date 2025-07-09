@@ -6,6 +6,18 @@
     padding: 10px;
 }
 
+/* Hero Section Animations */
+.heroSection {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.heroSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .heroCtn1{
     margin: 10px auto;
     width: 100%;
@@ -22,7 +34,11 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.5s ease;
+}
 
+.heroCtn2:hover {
+    transform: scale(1.05);
 }
 
 .heroText{
@@ -34,6 +50,12 @@
     line-height: 50.19px;
     letter-spacing: 0;
     text-transform: uppercase;
+    animation: textPulse 2s infinite alternate;
+}
+
+@keyframes textPulse {
+    0% { text-shadow: 0 0 0 rgba(62, 90, 189, 0); }
+    100% { text-shadow: 0 0 10px rgba(62, 90, 189, 0.3); }
 }
 
 .heroText span{
@@ -46,6 +68,7 @@
     position: absolute;
     top: 11px;
     left: 11px;
+    animation: float 4s ease-in-out infinite;
 }
 
 .heroImg2{
@@ -54,6 +77,8 @@
     position: absolute;
     right: -24px;
     bottom: 24px;
+    animation: float 5s ease-in-out infinite;
+    animation-delay: 1s;
 }
 
 .heroImg3{
@@ -62,6 +87,14 @@
     position: absolute;
     bottom: -21px;
     left: -21px;
+    animation: float 4.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
 
 .heroCTAText{
@@ -70,8 +103,10 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
-    letter-spacing: 0;width: 100%;
-    text-align: center;
+    letter-spacing: 0;
+    width: 100%;
+    text-align: justify;
+    text-align-last: center;
     margin: 30px auto;
 }
 
@@ -96,18 +131,41 @@
     color: white;
     width: 100%;
     padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sectionIndicator {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.activeIndicator {
+    background-color: white;
+    transform: scale(1.2);
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    /*gap: 32px;*/
     padding: 40px 0;
     justify-content: center;
 }
 
+.cardContent {
+    flex: 1;
+}
+
 .cardTitle {
-    /*color: rgb(0, 0, 0);*/
     font-family: Impact;
     font-size: 45px;
     font-weight: 400;
@@ -121,22 +179,20 @@
 .cardTitlemarketingCard{
     color: rgb(255, 255, 255);
 }
+
 .cardTitlegraphicsCard{
     color: rgb(3, 3, 3);
 }
 
 .cardTitlesocialCard{
     color: rgb(3, 3, 3);
-
 }
 
 .cardTitlevideoCard{
     color: rgb(3, 3, 3);
-
 }
 
 .cardDescription {
-    /*color: rgb(34, 34, 34);*/
     font-family: Montserrat;
     font-size: 8px;
     font-weight: 400;
@@ -145,21 +201,44 @@
     text-align: left;
 }
 
+.cardCTA {
+    margin-top: 20px;
+}
+
+.learnMore {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    padding: 6px 0;
+    font-family: Montserrat;
+
+    border-bottom: 2px solid transparent;
+}
+
+.learnMore:hover {
+    transform: translateX(5px);
+    border-bottom-color: currentColor;
+}
+
 .pageContainer {
     min-height: 100vh;
     background-color: white;
 }
 
 .mainContainer {
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     margin: 0 auto;
-    padding: 0 20px;
+    /*padding: 0 20px;*/
 }
 
 
 
 .stickySection {
     transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .isSticky {
@@ -233,9 +312,10 @@
 .whatWeDoCtn2{
     /*width: 100%;*/
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .whatWeDoCtn{
@@ -537,15 +617,17 @@
     }
 
     .heroCTAText{
-        text-align: left;
+        text-align: justify;
+        text-align-last: left;
     }
 
     .heroCTABtn{
-        display: inline-flex;
+        display: inline-flex    ;
         flex-direction: row-reverse;
         align-items: center;
         gap: 20px;
         width: 100%;
+        justify-content: flex-start;
     }
 
     .heroText{
@@ -591,7 +673,8 @@
         font-weight: 500;
         line-height: 24px;
         letter-spacing: 0;
-        text-align: left;
+        text-align: justify;
+        text-align-last: left;
     }
 
     .CaseStudyLowerHeaderText{
@@ -630,7 +713,7 @@
 
 @media (min-width: 1440px) {
     .LandingContainer {
-        width: 70%;
+        width: 100%;
         margin: 170px auto;
         font-family: Arial, sans-serif;
     }
@@ -649,7 +732,7 @@
 }
 
 .wrapper {
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -668,6 +751,8 @@
 .sliderContainer {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 1440px;
 }
 
 .slider {
@@ -679,8 +764,8 @@
 
 .logoWrapper {
     flex-shrink: 0;
-    width: 120px;
-    height: 40px;
+    width: 250px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -748,5 +833,167 @@
     .logoWrapper {
         width: 80px;
         height: 32px;
+    }
+}
+
+@keyframes wordSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wordSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.animatedWord {
+    display: inline-block;
+    position: relative;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    min-width: 175px;
+    text-align: center;
+}
+
+.aniText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sliderSection {
+    padding: 3rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sliderHeading {
+    color: rgb(0, 0, 0);
+    font-family: Impact;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.sliderHeading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #deaaff;
+}
+
+.logoWrapper {
+    flex-shrink: 0;
+    width: 140px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.logoWrapper:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.logoName {
+    font-size: 12px;
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+.logoWrapper:hover .logoName {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sliderFooter {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.viewAllLink {
+    display: inline-flex;
+    align-items: center;
+    color: #364c96;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.viewAllLink:hover {
+    transform: translateX(5px);
+    border-bottom-color: #364c96;
+}
+
+.arrowIcon {
+    margin-left: 8px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.viewAllLink:hover .arrowIcon {
+    transform: translateX(3px);
+}
+
+@media (min-width: 768px) {
+    .sliderHeading {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .logoWrapper {
+        width: 160px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sliderHeading {
+        font-size: 42px;
+        line-height: 52px;
     }
 }

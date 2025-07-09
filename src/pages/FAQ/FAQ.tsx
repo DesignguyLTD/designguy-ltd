@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./FAQ.module.css";
 import ButtonI from "../../components/Buttons/ButtonI";
+import stylesAbout from "../About/About.module.css";
 
 interface FAQItem {
     question: string;
@@ -83,16 +84,18 @@ const FAQ: React.FC = () => {
                 ))}
             </div>
 
-            <div className={styles.faqCTA}>
+
+            <div className={`${styles.faqCTA} ${stylesAbout.ctaSection}`}>
                 <div className={styles.faqHeaderText}>
                     Begin your Brand Journey with us
                 </div>
 
                 <p className={styles.faqSubText}>
-                    Graphics Design Use powerful yet familiar tools to create your ultimate website design. Import your designs from Figma. Use powerful yet familiar tools to create your ultimate website design.
+                    Let's transform your vision into compelling visual narratives. Our expert team is ready to elevate
+                    your brand with cutting-edge design solutions tailored to your specific needs.
                 </p>
 
-                <ButtonI/>
+                <ButtonI text="Start a Project" />
             </div>
         </div>
     );

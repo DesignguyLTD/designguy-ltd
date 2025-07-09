@@ -118,7 +118,7 @@
 .popupMenu li {
     padding: 10px 0;
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    color: grey;
     font-family: Montserrat;
     font-size: 25px;
     font-weight: 700;
@@ -133,7 +133,7 @@
 }
 
 .popupMenu li:hover {
-    color: #ff9800;
+    color: #ffffff;
 }
 
 .menuItemCtn{

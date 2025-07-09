@@ -3,14 +3,39 @@ import ButtonI from '../../components/Buttons/ButtonI';
 import ButtonII from '../../components/Buttons/ButtonII';
 import landingStyle from './LandingPage.module.css'
 import flexImgae from '../../assets/Berly.svg';
+import  flexImg2 from '../../assets/Mask Group.svg';
 import CaseStudy from '../../components/CaseStudy/CaseStudy';
 import styles from '../../pages/FAQ/FAQ.module.css'
+import stylesAbout from "../About/About.module.css";
 
 
 const LandingPage = () => {
     const [isSticky, setIsSticky] = useState(true);
     const stickyRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const [activeSection, setActiveSection] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+    const words = [
+        { text: 'THINK', color: '#deaaff', delay: '0s' },
+        { text: 'DEFINE', color: '#364c96', delay: '0.3s' },
+        { text: 'CREATE', color: '#ff9f23', delay: '0.6s' }
+    ];
+
+    // Word rotation effect
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }, 3000); // Change word every 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // Show elements when they come into view
+    useEffect(() => {
+        setIsVisible(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +48,15 @@ const LandingPage = () => {
             const containerBottom = containerRect.bottom - stickyHeight;
 
             setIsSticky(containerBottom > 0);
+
+            // Determine which section is currently in view
+            const sections = document.querySelectorAll(`.${landingStyle.card}`);
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    setActiveSection(index);
+                }
+            });
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -32,12 +66,12 @@ const LandingPage = () => {
     const [position, setPosition] = useState(0);
 
     const logos = [
-        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1737563458/DesignGuy-Ltd/22nd%20Jan/Item_SVG-1_nsmx8c.svg', name: 'Airbnb' },
-        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1737563459/DesignGuy-Ltd/22nd%20Jan/Item_SVG_iginj8.svg', name: 'Contra' },
-        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1737563459/DesignGuy-Ltd/22nd%20Jan/Item_SVG-4_jg3yvx.svg', name: 'Dribbble' },
-        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1737563459/DesignGuy-Ltd/22nd%20Jan/Item_SVG-2_yyshvf.svg', name: 'Hodinkee' },
-        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1737563459/DesignGuy-Ltd/22nd%20Jan/Item_SVG-3_hwqves.svg', name: 'Lark' },
-        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1737563461/DesignGuy-Ltd/22nd%20Jan/Vector_u5ntyk.svg', name: 'Lo' },
+        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076294/DesignGuy-Ltd/9th%20July/Item_SVG_np9wgk.svg', name: 'Amani' },
+        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076295/DesignGuy-Ltd/9th%20July/Item_SVG-2_qcutuc.svg', name: 'Jarom' },
+        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076294/DesignGuy-Ltd/9th%20July/Item_SVG-1_pkzmhf.svg', name: 'Zoe' },
+        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076294/DesignGuy-Ltd/9th%20July/Item_SVG-5_qd5lwh.svg', name: 'Beryl' },
+        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076294/DesignGuy-Ltd/9th%20July/Item_SVG-4_ovakjd.svg', name: 'Beulah' },
+        { src: 'https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076294/DesignGuy-Ltd/9th%20July/Item_SVG-5_qd5lwh.svg', name: 'Beryl' },
     ];
 
     // Duplicate logos for infinite scroll effect
@@ -59,43 +93,64 @@ const LandingPage = () => {
         return () => clearInterval(animationId);
     }, [logos.length]);
 
+    const berryl = [
+        { name: 'Brand Strategy', colorClass: 'colourItem_' },
+        { name: 'Digital Ads', colorClass: 'colourItem__' },
+        { name: 'Social Media Graphics', colorClass: 'colourItem___' },
+        { name: 'Visual Identity', colorClass: 'colourItem____' }
+    ];
+
+    const jarom = [
+        { name: 'Brand Strategy', colorClass: 'colourItem_' },
+        { name: 'Digital Ads', colorClass: 'colourItem__' },
+        { name: 'Social Media Graphics', colorClass: 'colourItem___' },
+        { name: 'Social Media Management', colorClass: 'colourItem____' }
+    ];
+
     return (
-        <div className={landingStyle.LandingContainer}  data-aos="fade-up">
+        <div className={landingStyle.LandingContainer}>
+            <div className={`${landingStyle.heroSection} ${isVisible ? landingStyle.visible : ''}`}>
+                <div className={landingStyle.heroCtn1}>
+                    <div className={landingStyle.heroCtn2}>
+                        <img className={landingStyle.heroImg1}
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076319/DesignGuy-Ltd/9th%20July/Background_adxwfr.svg"
+                            alt="Decoration 1"/>
+                        <img className={landingStyle.heroImg2}
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-1_lgydnk.svg"
+                            alt="Decoration 2"/>
+                        <img className={landingStyle.heroImg3}
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-2_xe8ixg.svg"
+                            alt="Decoration 3"/>
 
-            <div   data-aos="fade-down" className={landingStyle.heroCtn1}>
-                <div className={landingStyle.heroCtn2}>
-                    <br/>
-                    <img className={landingStyle.heroImg1}
-                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737440206/DesignGuy-Ltd/21st%20Jan/3Background_u4ssfb.svg"
-                         alt="1"/>
-                    <img className={landingStyle.heroImg2}
-                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737440206/DesignGuy-Ltd/21st%20Jan/2Background_ahb1yw.svg"
-                         alt="2"/>
-                    <img className={landingStyle.heroImg3}
-                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737440207/DesignGuy-Ltd/21st%20Jan/Background_vxtigs.svg"
-                         alt="3"/>
+                        <h1 className={landingStyle.heroText}>
+                           <div className={landingStyle.aniText}> RE
+                               <span
+                                   key={words[currentWordIndex].text}
+                                   className={landingStyle.animatedWord}
+                                   style={{
+                                       color: words[currentWordIndex].color,
+                                       animationName: landingStyle.wordSlideIn
+                                   }}
+                               >
+                                {words[currentWordIndex].text}
+                            </span></div>
+                            EVERYTHING
+                        </h1>
+                    </div>
+                </div>
 
-                    <h1 className={landingStyle.heroText}>
-                        RE<span>THINK</span> <br/>
-                        EVERYTHING
-                    </h1>
-
+                <div className={landingStyle.heroCTACtn}>
+                    <p className={landingStyle.heroCTAText}>
+                        Our firm specializes in the development of innovative ideas, products, and experiences designed to enhance brand visibility for reputable organizations within their respective fields.
+                    </p>
+                    <div className={landingStyle.heroCTABtn}>
+                        <ButtonI />
+                        <ButtonII onClick={() => window.location.href = '#/pricing'} />
+                    </div>
                 </div>
             </div>
 
-            <div   data-aos="fade-up" className={landingStyle.heroCTACtn}>
-                <p className={landingStyle.heroCTAText}>
-                    Our firm specializes in the development of innovative ideas, products, and experiences designed to enhance brand visibility for reputable organizations within their respective fields.
-                </p>
-                <div className={landingStyle.heroCTABtn}>
-                    <ButtonI />
-                    <ButtonII onClick={()=> {
-                        window.location.href = '#/pricing';
-                    } }/>
-                </div>
-            </div>
-
-            <div   data-aos="fade-up" className={landingStyle.pageContainer}>
+            <div className={landingStyle.pageContainer}>
                 <div ref={containerRef} className={landingStyle.mainContainer}>
                     <div className={landingStyle.grid}>
                         {/* Sticky Section */}
@@ -105,94 +160,98 @@ const LandingPage = () => {
                         >
                             <div className={landingStyle.whatWeDoCard}>
                                 <h1 className={landingStyle.mainTitle}>WHAT WE DO</h1>
+                                <div className={landingStyle.sectionIndicator}>
+                                    {[0, 1, 2, 3].map((index) => (
+                                        <div
+                                            key={index}
+                                            className={`${landingStyle.indicator} ${activeSection === index ? landingStyle.activeIndicator : ''}`}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
                         {/* Scrolling Sections */}
-                        <div className={landingStyle.scrollingSections}   data-aos="fade-up">
+                        <div className={landingStyle.scrollingSections}>
                             {/* Graphics Design Section */}
-                            <div className={`${landingStyle.card} ${landingStyle.graphicsCard}`}>
+                            <div id="graphics" className={`${landingStyle.card} ${landingStyle.graphicsCard}`}>
                                 <div className={landingStyle.flexcard}>
-                                    <div>
-                                        <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlegraphicsCard}`}>GRAPHICS <br/> DESIGN
+                                    <div className={landingStyle.cardContent}>
+                                        <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlegraphicsCard}`}>
+                                            GRAPHICS <br/> DESIGN
                                         </h2>
                                         <br/>
 
                                         <p className={`${landingStyle.cardDescription} ${landingStyle.cardTitlegraphicsCard}`}>
-                                            Graphics Design Use powerful yet familiar tools to create your ultimate
-                                            website design. Import your designs from Figma. Use powerful yet familiar
-                                            tools to create your ultimate website design.
+                                            We create stunning visual designs that capture your brand essence. From logos to marketing materials, our designs are crafted to make lasting impressions that resonate with your audience.
                                         </p>
+                                        <div className={landingStyle.cardCTA}>
+                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                        </div>
                                     </div>
                                     <img
                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737440209/DesignGuy-Ltd/21st%20Jan/Group_481483_ibrhd9.svg"
-                                        alt="flat"/>
-
+                                        alt="Graphics Design Illustration"/>
                                 </div>
-
                             </div>
 
                             {/* Digital Marketing Section */}
                             <div className={`${landingStyle.card} ${landingStyle.marketingCard}`}   data-aos="fade-up">
                                 <div className={landingStyle.flexcard}>
-                                    <div>
+                                    <div className={landingStyle.cardContent}>
                                         <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlemarketingCard}`}>DIGITAL <br/>
                                             MARKETING</h2>
                                         <br/>
                                         <p className={`${landingStyle.cardDescription} ${landingStyle.cardTitlemarketingCard}`}>
-                                            Graphics Design Use powerful yet familiar tools to create your ultimate
-                                            website
-                                            design. Import your designs from Figma. Use powerful yet familiar tools to
-                                            create
-                                            your ultimate website design.
+                                            Elevate your online presence with our digital marketing services. We use data-driven strategies to increase your visibility, engage your audience, and drive conversions.
                                         </p>
+                                        <div className={landingStyle.cardCTA}>
+                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                        </div>
                                     </div>
                                     <img
                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737440208/DesignGuy-Ltd/21st%20Jan/Social_media_marketing_and_digital_advertising_xk3esx.svg"
-                                        alt="flat"/>
-
+                                        alt="Digital Marketing Illustration"/>
                                 </div>
                             </div>
 
                             {/* Social Media Management Section */}
                             <div className={`${landingStyle.card} ${landingStyle.socialCard}`}  data-aos="fade-up">
                                 <div className={landingStyle.flexcard}>
-                                    <div>
+                                    <div className={landingStyle.cardContent}>
                                         <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlesocialCard}`}>SOCIAL
                                             MEDIA <br/> MANAGEMENT</h2>
                                         <br/>
                                         <p className={`${landingStyle.cardDescription} ${landingStyle.cardTitlesocialCard}`}>
-                                            Graphics Design Use powerful yet familiar tools to create your ultimate
-                                            website
-                                            design. Import your designs from Figma. Use powerful yet familiar tools to
-                                            create
-                                            your ultimate website design.
+                                            Build and manage your brand's presence on social media. Our team creates engaging content, manages your social channels, and interacts with your audience to grow your online community.
                                         </p>
+                                        <div className={landingStyle.cardCTA}>
+                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                        </div>
                                     </div>
                                     <img className={landingStyle.flexcardblend}
-                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737477316/DesignGuy-Ltd/21st%20Jan/social-media-manager-concept-illustration_114360-23821_hoqctk.avif"
-                                         alt="flat"/>
+                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076321/DesignGuy-Ltd/9th%20July/OBJECTS_hfapgu.svg"
+                                         alt="Social Media Management Illustration"/>
                                 </div>
                             </div>
 
                             {/* Video Editing Section */}
                             <div className={`${landingStyle.card} ${landingStyle.videoCard}`}   data-aos="fade-up">
                                 <div className={landingStyle.flexcard}>
-                                    <div>
+                                    <div className={landingStyle.cardContent}>
                                         <h2 className={`${landingStyle.cardTitle} ${landingStyle.cardTitlevideoCard}`}>VIDEO <br/> EDITING
                                         </h2>
                                         <br/>
                                         <p className={`${landingStyle.cardDescription} ${landingStyle.cardTitlevideoCard}`}>
-                                            Graphics Design Use powerful yet familiar tools to create your ultimate
-                                            website
-                                            design. Import your designs from Figma. Use powerful yet familiar tools to
-                                            create
-                                            your ultimate website design.
+                                            Enhance your video content with our professional editing services. We bring your vision to life with creative editing, color correction, and sound design.
                                         </p>
+                                        <div className={landingStyle.cardCTA}>
+                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                        </div>
                                     </div>
                                     <img className={landingStyle.flexcardblend}
-                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737477659/DesignGuy-Ltd/21st%20Jan/how-videos-abstract-concept-illustration_335657-3680_jp0qho.avif"
-                                         alt="flat"/>
+                                         src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076321/DesignGuy-Ltd/9th%20July/12290855_Wavy_Tech-07_Single-02_1_dkqhmf.svg"
+                                         alt="Video Editing Illustration"/>
                                 </div>
                             </div>
                         </div>
@@ -210,43 +269,47 @@ const LandingPage = () => {
                             We uncover insights to achieve
                             timelessness and relevance in this rapidly changing world.
                         </p>
-                        <ButtonI/>
+                        <ButtonI text={'Our Work'}/>
 
                     </div>
                 </div>
 
-                <CaseStudy fleximgae={flexImgae}/>
-                <CaseStudy fleximgae={flexImgae}/>
-                <CaseStudy fleximgae={flexImgae}/>
-                <CaseStudy fleximgae={flexImgae}/>
-                <CaseStudy fleximgae={flexImgae}/>
+                <CaseStudy items={berryl} text={'Beryl elegancia'} subText={'Fashion redefined in luxury'} fleximgae={flexImgae}/>
+                <CaseStudy items={jarom} text={'Jarom Travels'} subText={'Happiness is free'}   fleximgae={flexImg2}/>
+
 
 
             </div>
 
 
-            <div className={landingStyle.container}>
-                <div className={landingStyle.wrapper}>
+            <div className={landingStyle.wrapper}>
+                <div data-aos="fade-up" className={landingStyle.sliderSection}>
+                    {/*<h3 className={landingStyle.sliderHeading}>*/}
+                    {/*    Meet our valued partners*/}
+                    {/*</h3>*/}
 
-
-                    <div   data-aos="fade-up" className={landingStyle.sliderContainer}>
+                    <div className={landingStyle.sliderContainer}>
                         <div
                             className={landingStyle.slider}
                             style={{
                                 transform: `translateX(${position}px)`,
-                                width: `${duplicatedLogos.length * 140}px`  // 120px logo width + 20px gap
+                                width: `${duplicatedLogos.length * 140}px`
                             }}
+                            aria-label="Our clients and partners"
                         >
                             {duplicatedLogos.map((logo, index) => (
                                 <div
                                     key={`${logo.name}-${index}`}
-                                    className={styles.logoWrapper}
+                                    className={landingStyle.logoWrapper}
+                                    title={`${logo.name} - Our client`}
                                 >
                                     <img
                                         src={logo.src}
-                                        alt={logo.name}
+                                        alt={`${logo.name} logo`}
                                         className={landingStyle.logo}
+                                        loading="lazy"
                                     />
+                                    <span className={landingStyle.logoName}>{logo.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -254,26 +317,28 @@ const LandingPage = () => {
                         {/* Gradient overlays for smooth edges */}
                         <div className={`${landingStyle.gradient} ${landingStyle.gradientLeft}`}/>
                         <div className={`${landingStyle.gradient} ${landingStyle.gradientRight}`}/>
-                        <br/>
+                    </div>
 
-                        <h3 className={landingStyle.title}>
-                            Meet our customers &gt;
-                        </h3>
+                    <div className={landingStyle.sliderFooter}>
+                        <a href="#/" className={landingStyle.viewAllLink}>
+                            View all our partners
+                            <span className={landingStyle.arrowIcon}>→</span>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div className={styles.faqCTA}   data-aos="fade-up">
+            <div className={`${styles.faqCTA} ${stylesAbout.ctaSection}`}>
                 <div className={styles.faqHeaderText}>
                     Begin your Brand Journey with us
                 </div>
 
                 <p className={styles.faqSubText}>
-                    Graphics Design Use powerful yet familiar tools to create your ultimate website design. Import your
-                    designs from Figma. Use powerful yet familiar tools to create your ultimate website design.
+                    Let's transform your vision into compelling visual narratives. Our expert team is ready to elevate
+                    your brand with cutting-edge design solutions tailored to your specific needs.
                 </p>
 
-                <ButtonI/>
+                <ButtonI text="Start a Project" />
             </div>
         </div>
     );

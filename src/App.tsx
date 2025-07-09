@@ -17,7 +17,7 @@ import {useEffect} from "react"; // You can also use <link> for styles
 function App() {
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Animation duration
+            duration: 100, // Animation duration
             once: false,    // Whether animation should happen only once
         });
     }, []);
