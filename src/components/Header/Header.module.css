@@ -120,11 +120,12 @@
     cursor: pointer;
     color: grey;
     font-family: Montserrat;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 50px;
     letter-spacing: 0;
     text-align: left;
+    transition: all 0.7s ease-in-out;
 
 }
 

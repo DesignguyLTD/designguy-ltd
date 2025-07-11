@@ -8,6 +8,7 @@ import FAQ from './pages/FAQ/FAQ';
 import LandingPage from "./pages/landingPage/LandingPage";
 import Pricing from "./pages/Pricing/Pricing";
 import About from "./pages/About/About";
+import NotFound from "./pages/NotFound/NotFound";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {useEffect} from "react"; // You can also use <link> for styles
@@ -34,9 +35,10 @@ function App() {
           <Router basename="/">
               <Routes>
                   <Route path="/"  element={<LandingPage/>}/>
-                  <Route path="/faq" element={  <FAQ/>}/>
-                  <Route path="/about-us" element={  <About/>}/>
+                  <Route path="/faq" element={<FAQ/>}/>
+                  <Route path="/about-us" element={<About/>}/>
                   <Route path='/pricing' element={<Pricing/>}/>
+                  <Route path="*" element={<NotFound/>}/>
               </Routes>
           </Router>
 

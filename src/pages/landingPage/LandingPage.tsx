@@ -16,25 +16,40 @@ const LandingPage = () => {
     const [activeSection, setActiveSection] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [animationState, setAnimationState] = useState<'entering' | 'leaving'>('entering');
 
     const words = [
-        { text: 'THINK', color: '#deaaff', delay: '0s' },
-        { text: 'DEFINE', color: '#364c96', delay: '0.3s' },
-        { text: 'CREATE', color: '#ff9f23', delay: '0.6s' }
+        { text: 'DEFINE', color: '#364c96' },
+        { text: 'CREATE', color: '#ff9f23' },
+        { text: 'THINK', color: '#deaaff' }
     ];
 
-    // Word rotation effect
+    // Word rotation effect with scroll-like transition
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-        }, 3000); // Change word every 3 seconds
+        if (animationState === 'entering') {
+            // When a word has entered, set timer to begin exit animation
+            const enteringTimer = setTimeout(() => {
+                setAnimationState('leaving');
+            }, 3000); // Word stays visible for 3 seconds - increased for better visibility
 
-        return () => clearInterval(interval);
-    }, []);
+            return () => clearTimeout(enteringTimer);
+        } else {
+            // When a word is leaving, prepare to show the next word
+            const leavingTimer = setTimeout(() => {
+                setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+                setAnimationState('entering');
+            }, 800); // Match animation-duration in CSS
+
+            return () => clearTimeout(leavingTimer);
+        }
+    }, [animationState, words.length]);
 
     // Show elements when they come into view
     useEffect(() => {
         setIsVisible(true);
+        // Start with the first word and 'entering' animation
+        setCurrentWordIndex(0);
+        setAnimationState('entering');
     }, []);
 
     useEffect(() => {
@@ -113,27 +128,32 @@ const LandingPage = () => {
                 <div className={landingStyle.heroCtn1}>
                     <div className={landingStyle.heroCtn2}>
                         <img className={landingStyle.heroImg1}
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076319/DesignGuy-Ltd/9th%20July/Background_adxwfr.svg"
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-2_xe8ixg.svg"
                             alt="Decoration 1"/>
                         <img className={landingStyle.heroImg2}
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-1_lgydnk.svg"
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076319/DesignGuy-Ltd/9th%20July/Background_adxwfr.svg"
                             alt="Decoration 2"/>
                         <img className={landingStyle.heroImg3}
-                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-2_xe8ixg.svg"
+                            src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-1_lgydnk.svg"
                             alt="Decoration 3"/>
 
                         <h1 className={landingStyle.heroText}>
                            <div className={landingStyle.aniText}> RE
-                               <span
-                                   key={words[currentWordIndex].text}
-                                   className={landingStyle.animatedWord}
-                                   style={{
-                                       color: words[currentWordIndex].color,
-                                       animationName: landingStyle.wordSlideIn
-                                   }}
-                               >
-                                {words[currentWordIndex].text}
-                            </span></div>
+                               <div className={landingStyle.wordContainer}>
+                                   <span
+                                       key={`${words[currentWordIndex].text}-${animationState}`}
+                                       className={landingStyle.animatedWord}
+                                       style={{
+                                           color: words[currentWordIndex].color,
+                                           animationName: animationState === 'entering'
+                                               ? landingStyle.wordSlideIn
+                                               : landingStyle.wordSlideOut
+                                       }}
+                                   >
+                                    {words[currentWordIndex].text}
+                                   </span>
+                               </div>
+                            </div>
                             EVERYTHING
                         </h1>
                     </div>
@@ -161,7 +181,7 @@ const LandingPage = () => {
                             <div className={landingStyle.whatWeDoCard}>
                                 <h1 className={landingStyle.mainTitle}>WHAT WE DO</h1>
                                 <div className={landingStyle.sectionIndicator}>
-                                    {[0, 1, 2, 3].map((index) => (
+                                    {[].map((index) => (
                                         <div
                                             key={index}
                                             className={`${landingStyle.indicator} ${activeSection === index ? landingStyle.activeIndicator : ''}`}
@@ -186,7 +206,7 @@ const LandingPage = () => {
                                             We create stunning visual designs that capture your brand essence. From logos to marketing materials, our designs are crafted to make lasting impressions that resonate with your audience.
                                         </p>
                                         <div className={landingStyle.cardCTA}>
-                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                            <a href="#/about-us" className={landingStyle.learnMore}>Learn more →</a>
                                         </div>
                                     </div>
                                     <img
@@ -206,7 +226,7 @@ const LandingPage = () => {
                                             Elevate your online presence with our digital marketing services. We use data-driven strategies to increase your visibility, engage your audience, and drive conversions.
                                         </p>
                                         <div className={landingStyle.cardCTA}>
-                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                            <a href="#/about-us" className={landingStyle.learnMore}>Learn more →</a>
                                         </div>
                                     </div>
                                     <img
@@ -226,7 +246,7 @@ const LandingPage = () => {
                                             Build and manage your brand's presence on social media. Our team creates engaging content, manages your social channels, and interacts with your audience to grow your online community.
                                         </p>
                                         <div className={landingStyle.cardCTA}>
-                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                            <a href="#/about-us" className={landingStyle.learnMore}>Learn more →</a>
                                         </div>
                                     </div>
                                     <img className={landingStyle.flexcardblend}
@@ -246,7 +266,7 @@ const LandingPage = () => {
                                             Enhance your video content with our professional editing services. We bring your vision to life with creative editing, color correction, and sound design.
                                         </p>
                                         <div className={landingStyle.cardCTA}>
-                                            <a href="#/contact" className={landingStyle.learnMore}>Learn more →</a>
+                                            <a href="#/about-us" className={landingStyle.learnMore}>Learn more →</a>
                                         </div>
                                     </div>
                                     <img className={landingStyle.flexcardblend}

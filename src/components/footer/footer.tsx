@@ -29,16 +29,16 @@ const Footer = () => {
 
                 <div className={footerStyle.rightCtnMiddleCtn}>
                     <div>
-                        <div className={footerStyle.rightCtnHeader}>Learn</div>
-                        <ul className={footerStyle.rightCtnUl}>
-                            <li className={footerStyle.rightCtnLi}>Demo</li>
-                            <li className={footerStyle.rightCtnLi}>Developers</li>
-                            <li className={footerStyle.rightCtnLi}>How To</li>
+                        {/*<div className={footerStyle.rightCtnHeader}>Learn</div>*/}
+                      <ul className={footerStyle.rightCtnUl}>
+                            <li className={footerStyle.rightCtnLi}><a href="#/about-us" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>About</a></li>
+                            <li className={footerStyle.rightCtnLi}><a href="#/pricing" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>Pricing</a></li>
+                            <li className={footerStyle.rightCtnLi}><a href="#/faq" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>FAQ</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <div className={footerStyle.rightCtnHeader}>Company</div>
+                        {/*<div className={footerStyle.rightCtnHeader}>Company</div>*/}
                         <ul className={footerStyle.rightCtnUl}>
                             <li className={footerStyle.rightCtnLi}>Terms & Service</li>
                             <li className={footerStyle.rightCtnLi}>Privacy Policy</li>
