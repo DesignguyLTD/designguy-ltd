@@ -63,10 +63,10 @@ const PricingComponent: React.FC<PricingComponentProps> = ({
                                                                plans
                                                            }) => {
     const [selectedOption, setSelectedOption] = useState<string | null>(
-        options.find(option => option.id === 'premium')?.id || null
+        options.find(option => option.id === 'lite')?.id || null
     );
     const [openPackageDetails, setOpenPackageDetails] = useState<boolean>(false);
-    const [currentPackage, setCurrentPackage] = useState<'business' | 'premium' | 'economy' | 'lite'>('premium');
+    const [currentPackage, setCurrentPackage] = useState<'business' | 'premium' | 'economy' | 'lite'>('lite');
 
     const handleOptionSelect = (optionId: string) => {
         setSelectedOption(optionId);
