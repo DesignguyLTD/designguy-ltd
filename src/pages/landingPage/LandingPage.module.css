@@ -9,7 +9,7 @@
 .animatedWord {
     z-index: 1;
     display: inline-block;
-    position: absolute;
+    /*position: absolute;*/
     animation-duration: 0.8s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
@@ -22,14 +22,14 @@
     margin: auto 0;
 }
 
-.wordContainer {
-    position: relative;
-    display: inline-block;
-    height: 50px;
-    overflow: hidden;
-    vertical-align: bottom;
-    min-width: 180px; /* Increased to match animatedWord */
-}
+/*.wordContainer {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    height: 50px;*/
+/*    overflow: hidden;*/
+/*    vertical-align: bottom;*/
+/*    min-width: 180px; !* Increased to match animatedWord *!*/
+/*}*/
 
 
 /* Hero Section Animations */
@@ -789,26 +789,26 @@
     .animatedWord {
         z-index: 1;
         display: inline-block;
-        position: absolute;
+        /*position: absolute;*/
         animation-duration: 0.8s;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         /*min-width: 600px; !* Increased for the largest screens *!*/
         text-align: center;
-        left: 0;
+        /*left: 0;*/
         /*white-space: nowrap;*/
     }
 
 
-    .wordContainer {
-        text-align: center;
-        position: relative;
-        display: inline-block;
-        height: 150px;
-        overflow: hidden;
-        vertical-align: bottom;
-        min-width: 100%; /* Increased to match animatedWord */
-    }
+    /*.wordContainer {*/
+    /*    text-align: center;*/
+    /*    position: relative;*/
+    /*    display: inline-block;*/
+    /*    height: 150px;*/
+    /*    overflow: hidden;*/
+    /*    vertical-align: bottom;*/
+    /*    min-width: 100%; !* Increased to match animatedWord *!*/
+    /*}*/
 }
 
 

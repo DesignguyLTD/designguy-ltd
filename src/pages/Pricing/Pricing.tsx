@@ -24,6 +24,60 @@ const Pricing = () => {
 
     const [selectedPlan, setSelectedPlan] = useState(plans[0]);
 
+    // Format currency function
+    const formatCurrency = (amount: number): string => {
+        return `₦${amount.toLocaleString()}`;
+    };
+
+    // WhatsApp integration function
+    const handleConfirmOrder = () => {
+        // Get the right package based on selected plan
+        let selectedPackage;
+        switch(selectedPlan.name.toLowerCase()) {
+            case 'lite':
+                selectedPackage = litePackage;
+                break;
+            case 'economy':
+                selectedPackage = economyPackage;
+                break;
+            case 'business':
+                selectedPackage = businessPackage;
+                break;
+            case 'premium':
+                selectedPackage = premiumPackage;
+                break;
+            default:
+                selectedPackage = litePackage;
+        }
+
+        // Format services list
+        const servicesList = selectedPackage.services.map(service =>
+            `- ${service.name}: ${formatCurrency(service.price)} per ${service.frequency}`
+        ).join('\n');
+
+        // Create WhatsApp message
+        const message =
+`Hello DesignGuy! 👋
+
+I would like to order the *${selectedPlan.name} Package* with the following details:
+
+*Package Details:*
+${servicesList}
+
+*Total Value:* ${formatCurrency(selectedPackage.totalPrice)}
+*Discounted Price:* ${formatCurrency(selectedPackage.discountPrice)}
+
+*Note:* ${selectedPackage.note}
+
+Please confirm availability and next steps to get started. Thank you!`;
+
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Open WhatsApp in new tab
+        window.open(`https://api.whatsapp.com/send/?phone=2349113460989&text=${encodedMessage}&type=phone_number&app_absent=0`, '_blank');
+    };
+
     // Define pricing options
     const pricingOptions = [
         {
@@ -36,8 +90,8 @@ const Pricing = () => {
         {
             id: 'economy',
             name: 'Economy',
-            discount: 120000,
-            total: 278988,
+            discount: 250000,
+            total: 504988,
             discountPercent: 49.5
         },
         {
@@ -45,7 +99,7 @@ const Pricing = () => {
             name: 'Business',
             discount: 550000,
             total: 1033980,
-            discountPercent: 53.2
+            discountPercent: 54
         },
         {
             id: 'premium',
@@ -72,40 +126,36 @@ const Pricing = () => {
 
     const litePackage = {
         services: [
-            { name: '5 Socials Media Flyers', price: 74995, frequency: 'week' },
-            { name: '3 Video Editing', price: 60000, frequency: 'week' },
-            { name: '8 Curated Content', price: 66000, frequency: 'week' },
-            { name: 'Social Media Ads (Meta)', price: 80000, frequency: 'month' },
-            { name: 'Social Media Management', price: 150000, frequency: 'Month' }
+            { name: '3 Social Media Flyers', price: 44997, frequency: 'week' },
+            { name: '3 Curated Content', price: 24750, frequency: 'week' },
+
         ],
-        totalPrice: 1033980,
-        discountPrice: 550000,
+        totalPrice: 278988,
+        discountPrice: 120000,
         note: 'This package will provide 3 Flyers and contents of the above values per week for 4 weeks'
     };
 
     const economyPackage = {
         services: [
-            { name: '5 Socials Media Flyers', price: 74995, frequency: 'week' },
-            { name: '3 Video Editing', price: 60000, frequency: 'week' },
-            { name: '8 Curated Content', price: 66000, frequency: 'week' },
-            { name: 'Social Media Ads (Meta)', price: 80000, frequency: 'month' },
-            { name: 'Social Media Management', price: 150000, frequency: 'Month' }
+            { name: '3 Social Media Flyers', price: 44997, frequency: 'week' },
+            { name: '2 Video Editing', price: 40000, frequency: 'week' },
+            { name: '5 Curated Content', price: 41250, frequency: 'week' },
         ],
-        totalPrice: 1033980,
-        discountPrice: 550000,
+        totalPrice: 504988,
+        discountPrice: 250000,
         note: 'This package will provide 3 Flyers and contents of the above values per week for 4 weeks'
     };
 
     const premiumPackage = {
         services: [
-            { name: '5 Socials Media Flyers', price: 74995, frequency: 'week' },
-            { name: '3 Video Editing', price: 60000, frequency: 'week' },
-            { name: '8 Curated Content', price: 66000, frequency: 'week' },
-            { name: 'Social Media Ads (Meta)', price: 80000, frequency: 'month' },
+            { name: 'Max. 10 Flyer', price: 149990, frequency: 'week' },
+            { name: 'Max. 5 Videos', price: 100000, frequency: 'week' },
+            { name: 'Max. 15 contents', price: 123750, frequency: 'week' },
+            { name: 'Social Media Ads (Meta, Google)', price: 140000, frequency: 'month' },
             { name: 'Social Media Management', price: 150000, frequency: 'Month' }
         ],
-        totalPrice: 1033980,
-        discountPrice: 550000,
+        totalPrice: 1784960,
+        discountPrice: 995000,
         note: 'This package will provide 3 Flyers and contents of the above values per week for 4 weeks'
     };
 
@@ -203,7 +253,7 @@ const Pricing = () => {
                             )}
                         </ul>
 
-                        <button className={pricingStyle.confirm}>Confirm Order <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273906/DesignGuy-Ltd/19th%20Jan/aVector_zz8bwx.svg" alt="next"/></button>
+                        <button onClick={handleConfirmOrder} className={pricingStyle.confirm}>Confirm Order <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273906/DesignGuy-Ltd/19th%20Jan/aVector_zz8bwx.svg" alt="next"/></button>
                     </div>
 
                 </div>
@@ -219,7 +269,7 @@ const Pricing = () => {
                         your brand with cutting-edge design solutions tailored to your specific needs.
                     </p>
 
-                    <ButtonI text="Start a Project" />
+                    <ButtonI onClick={() => window.open('https://api.whatsapp.com/send/?phone=2349113460989&text=Hello+DesignGuy%21+%EF%BF%BD%0AI+came+across+your+website+and+I%E2%80%99m+really+interested+in+your+services.%0AI%E2%80%99m+looking+for+support+with+one+or+more+of+the+following%3A%0A-+Social+Media+Flyer%0A-+Content+Creation%0A-+Video+Edits+%26+Motion+Graphics%0A-+Social+Media+Management%0A-+Digital+Marketing+%28Ads%29%0A-+Brand+Consultation%0A%0ACould+you+kindly+guide+me+on+your+packages%2C+pricing%2C+and+how+to+get+started%3F&type=phone_number&app_absent=0', '_blank')} text="Start a Project" />
                 </div>
 
         </div>
