@@ -1,0 +1,1080 @@
+.LandingContainer {
+    color: black;
+    width: 100%;
+    margin: 100px auto;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
+.animatedWord {
+    z-index: 1;
+    display: inline-block;
+    /*position: absolute;*/
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    /*min-width: 180px; !* Increased from 100px to prevent text breaking *!*/
+    text-align: center;
+    left: 0;
+    /*white-space: nowrap; !* Prevent text from wrapping *!*/
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+/*.wordContainer {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    height: 50px;*/
+/*    overflow: hidden;*/
+/*    vertical-align: bottom;*/
+/*    min-width: 180px; !* Increased to match animatedWord *!*/
+/*}*/
+
+
+/* Hero Section Animations */
+.heroSection {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.heroSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heroCtn1{
+    margin: 10px auto;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.heroCtn2{
+    position: relative;
+    width: 233px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.heroCtn2:hover {
+    transform: scale(1.05);
+}
+
+.heroText{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: Impact;
+    font-size: 51.77px;
+    font-weight: 400;
+    line-height: 50.19px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    animation: textPulse 2s infinite alternate;
+}
+
+@keyframes textPulse {
+    0% { text-shadow: 0 0 0 rgba(62, 90, 189, 0); }
+    100% { text-shadow: 0 0 10px rgba(62, 90, 189, 0.3); }
+}
+
+.heroText span{
+    color: rgb(62, 90, 189);
+}
+
+.heroImg1{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: -12px;
+    left: -3px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.heroImg2{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: -29px;
+    bottom: 4px;
+    animation: float 5s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.heroImg3{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: -30px;
+    left: -27px;
+    animation: float 4.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+/*@keyframes float {*/
+/*    0% { transform: translateY(0px); }*/
+/*    50% { transform: translateY(-8px); }*/
+/*    100% { transform: translateY(0px); }*/
+/*}*/
+
+.heroCTAText{
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0;
+    width: 100%;
+    text-align: justify;
+    text-align-last: center;
+    margin: 30px auto;
+}
+
+.heroCTACtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.heroCTABtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.whatWeDoCard {
+    background: rgb(0, 74, 124);
+    color: white;
+    width: 100%;
+    /*height: 346px;*/
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sectionIndicator {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.activeIndicator {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 40px 0;
+    justify-content: center;
+}
+
+.cardContent {
+    flex: 1;
+}
+
+.cardTitle {
+    font-family: Impact;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 44.5px;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.cardTitlemarketingCard{
+    color: rgb(255, 255, 255);
+}
+
+.cardTitlegraphicsCard{
+    color: rgb(3, 3, 3);
+}
+
+.cardTitlesocialCard{
+    color: rgb(3, 3, 3);
+}
+
+.cardTitlevideoCard{
+    color: rgb(3, 3, 3);
+}
+
+.cardDescription {
+    font-family: Montserrat;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.cardCTA {
+    margin-top: 20px;
+}
+
+.learnMore {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    padding: 6px 0;
+    font-family: Montserrat;
+
+    border-bottom: 2px solid transparent;
+}
+
+.learnMore:hover {
+    transform: translateX(5px);
+    border-bottom-color: currentColor;
+}
+
+.pageContainer {
+    min-height: 100vh;
+    background-color: white;
+}
+
+.mainContainer {
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    /*padding: 0 20px;*/
+}
+
+
+
+.stickySection {
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.isSticky {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+/* Adding an offset to make sure the sticky section appears as soon as possible */
+@media (min-width: 768px) {
+    .isSticky {
+        position: sticky;
+        top: 80px;
+        height: fit-content;
+    }
+}
+
+@media (min-width: 1024px) {
+    .isSticky {
+        position: sticky;
+        top: 60px;
+        height: fit-content;
+        align-self: flex-start; /* Help with alignment in the grid */
+    }
+}
+
+.scrollingSections {
+    display: flex;
+    flex-direction: column;
+    /*gap: 32px;*/
+    padding-bottom: 64px;
+}
+
+/* Cards */
+.card {
+    padding: 32px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+
+.graphicsCard {
+    background-color: #ffffff;
+}
+
+.marketingCard {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.socialCard {
+    background-color: #f3f4f6;
+}
+
+.videoCard {
+    background-color: #fbbf24;
+}
+
+/* Typography */
+.mainTitle {
+    color: rgb(255, 255, 255);
+    font-family: Impact;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.flexcard img{
+    display: none;
+}
+
+.whatWeDoSubText{
+    width: 60%;
+    margin: 3% 0;
+    font-size: 10px;
+}
+
+.CaseStudyCtn{
+    margin: 4% auto;
+    width: 100%;
+}
+
+.whatWeDoCtn2{
+    /*width: 100%;*/
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.whatWeDoCtn{
+    width: 100%;
+    margin: 20px auto;
+}
+
+.whatWeDoText{
+    width: 100%;
+}
+
+.CaseStudyLowerCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.CaseStudyLowerHeaderText{
+    color: rgb(0, 0, 0);
+    font-family: Impact;
+    font-size: 21.88px;
+    font-weight: 400;
+    line-height: 21.8px;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.CaseStudyLowerSubText{
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 8.91px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0;
+    text-align: left;
+}
+.CaseStudyLowerTextCtn{
+    width: 70%;
+}
+
+.CaseStudyLowerItem{
+    color: rgb(0, 0, 0);
+    font-family: Verdana;
+    font-size: 6.94px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.CaseStudyLowerItemCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    white-space: wrap;
+    gap: 4px;
+}
+
+.colourItem_, .colourItem___{
+    padding: 3px 4px;
+    background: rgb(174, 217, 224);
+}
+
+
+.colourItem__{
+    padding: 3px 4px;
+    background: rgb(255, 203, 176);
+}
+
+.colourItem____{
+    padding: 3px 4px;
+    background: rgb(222, 170, 255);
+}
+
+.CaseStudyIndividualCtn{
+    margin: 3% auto;
+}
+
+.CaseStudyflexImg img:hover{
+    transform: scale(1.003);
+}
+
+@media (min-width: 768px) {
+
+    .mainTitle{
+        color: rgb(255, 255, 255);
+        font-family: Impact;
+        font-size: 49px;
+        font-weight: 400;
+        line-height: 70px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+
+    .whatWeDoSubText{
+        width: 50%;
+        margin: 3% 0;
+    }
+    .flexcard img{
+        display: inline;
+        width: 200px;
+    }
+    .isSticky {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    .whatWeDoCard {
+        background: rgb(0, 74, 124);
+        color: white;
+        height: 346px;
+        padding: 10px;
+        /*width: 100px;*/
+    }
+    .grid {
+        grid-template-columns: 1fr auto;
+    }
+
+    .heroCtn2{
+        margin: 70px auto;
+    }
+    .LandingContainer {
+        width: 100%;
+        margin: 120px auto;
+        padding: 30px;
+        font-family: Arial, sans-serif;
+    }
+
+    .heroText{
+        color: rgb(0, 0, 0);
+        font-family: Impact;
+        font-size: 100.65px;
+        font-weight: 400;
+        line-height: 94.79px;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .heroImg1{
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        top: -30px;
+        left: -97px;
+    }
+
+    .heroImg2{
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        right: -171px;
+        bottom: 0;
+    }
+
+    .heroImg3{
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        bottom: -70px;
+        left: -170px;
+    }
+
+    .heroCTAText{
+        width: 77%;
+        color: rgb(0, 0, 0);
+        font-family: Montserrat;
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+
+    .cardTitle{
+        /*color: rgb(255, 255, 255);*/
+        font-family: Impact;
+        font-size: 67.5px;
+        font-weight: 400;
+        line-height: 66.75px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .cardDescription{
+        /*color: rgb(34, 34, 34);*/
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0px;
+        text-align: left;
+    }
+
+    .flexcard{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .flexcardblend{
+        mix-blend-mode: multiply;
+    }
+
+    .heroCTABtn{
+        display: inline-flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .CaseStudyLowerHeaderText{
+        color: rgb(0, 0, 0);
+        font-family: Impact;
+        font-size: 32.81px;
+        font-weight: 400;
+        line-height: 46.2px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .CaseStudyLowerSubText{
+        color: rgb(0, 0, 0);
+        font-family: Montserrat;
+        font-size: 13.36px;
+        font-weight: 400;
+        line-height: 22.5px;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .CaseStudyLowerItem{
+        color: rgb(0, 0, 0);
+        font-family: Verdana;
+        font-size: 10.41px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .colourItem_, .colourItem___{
+        padding: 6px 8px;
+        background: rgb(174, 217, 224);
+    }
+
+
+    .colourItem__{
+        padding: 6px 8px;
+        background: rgb(255, 203, 176);
+    }
+
+    .colourItem____{
+        padding: 6px 8px;
+        background: rgb(222, 170, 255);
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .mainTitle{
+        color: rgb(255, 255, 255);
+        font-family: Impact;
+        font-size: 62px;
+        font-weight: 400;
+        line-height: 80px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .whatWeDoCard {
+        padding: 32px;
+        width: 200px;
+    }
+    .whatWeDoCtn{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .isSticky {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    .flexcard img{
+        display: inline;
+        width: 380px;
+    }
+
+    .LandingContainer {
+        width: 100%;
+        padding: 0 20px;
+        margin: 150px auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .heroCTACtn{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .heroCTAText{
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    .heroCTABtn{
+        display: inline-flex    ;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .heroText{
+        color: rgb(0, 0, 0);
+        font-family: Impact;
+        font-size: 137.7px;
+        font-weight: 400;
+        line-height: 137px;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .heroImg1{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: -50px;
+        left: -200px;
+    }
+
+    .heroImg2{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        right: -290px;
+        bottom: -30px;
+    }
+
+    .heroImg3{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        bottom: -130px;
+        left: -290px;
+    }
+
+    .heroCTAText{
+        width: 100%;
+        color: rgb(0, 0, 0);
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    .CaseStudyLowerHeaderText{
+        color: rgb(0, 0, 0);
+        font-family: Impact;
+        font-size: 43.75px;
+        font-weight: 400;
+        line-height: 61.6px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .CaseStudyLowerSubText{
+        color: rgb(0, 0, 0);
+        font-family: Montserrat;
+        font-size: 17.81px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .CaseStudyLowerItem{
+        color: rgb(0, 0, 0);
+        font-family: Verdana;
+        font-size: 13.88px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    .animatedWord {
+        z-index: 1;
+        display: inline-block;
+        /*position: absolute;*/
+        animation-duration: 0.8s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        /*min-width: 600px; !* Increased for the largest screens *!*/
+        text-align: center;
+        /*left: 0;*/
+        /*white-space: nowrap;*/
+    }
+
+
+    /*.wordContainer {*/
+    /*    text-align: center;*/
+    /*    position: relative;*/
+    /*    display: inline-block;*/
+    /*    height: 150px;*/
+    /*    overflow: hidden;*/
+    /*    vertical-align: bottom;*/
+    /*    min-width: 100%; !* Increased to match animatedWord *!*/
+    /*}*/
+}
+
+
+/*f*/
+
+.container {
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    padding: 2rem 0;
+}
+
+.wrapper {
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.title {
+    color: rgb(43, 43, 43);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.6px;
+    letter-spacing: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sliderContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.logoWrapper {
+    flex-shrink: 0;
+    width: 250px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.logoWrapper:hover {
+    filter: grayscale(0%);
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 96px;
+    pointer-events: none;
+}
+
+.gradientLeft {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.gradientRight {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 0.5rem;
+    }
+
+    .slider {
+        gap: 1rem;
+    }
+
+    .logoWrapper {
+        width: 100px;
+    }
+
+    .gradient {
+        width: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem 0;
+    }
+
+    .title {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .logoWrapper {
+        width: 80px;
+        height: 32px;
+    }
+}
+
+@keyframes wordSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wordSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+
+.aniText {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    width: auto;
+    margin: 0;
+}
+
+.sliderSection {
+    padding: 3rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sliderHeading {
+    color: rgb(0, 0, 0);
+    font-family: Impact;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.sliderHeading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #deaaff;
+}
+
+.logoWrapper {
+    flex-shrink: 0;
+    width: 140px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.logoWrapper:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.logoName {
+    font-size: 12px;
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+.logoWrapper:hover .logoName {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sliderFooter {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.viewAllLink {
+    display: inline-flex;
+    align-items: center;
+    color: #364c96;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.viewAllLink:hover {
+    transform: translateX(5px);
+    border-bottom-color: #364c96;
+}
+
+.arrowIcon {
+    margin-left: 8px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.viewAllLink:hover .arrowIcon {
+    transform: translateX(3px);
+}
+
+@media (min-width: 768px) {
+    .sliderHeading {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .logoWrapper {
+        width: 160px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sliderHeading {
+        font-size: 42px;
+        line-height: 52px;
+    }
+}
