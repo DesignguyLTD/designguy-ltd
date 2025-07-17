@@ -1,5 +1,6 @@
 // footer.tsx
 import footerStyle from './footer.module.css'
+import { FaFacebook, FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
     return (
@@ -12,7 +13,7 @@ const Footer = () => {
                 <br/>
 
 
-                <div className={footerStyle.leftCtnCTA}>Contact Us Today</div>
+                <div className={footerStyle.leftCtnCTA} onClick={() => window.open('https://api.whatsapp.com/send/?phone=2349113460989&text=Hello+DesignGuy%21+%EF%BF%BD%0AI+came+across+your+website+and+I%E2%80%99m+really+interested+in+your+services.%0AI%E2%80%99m+looking+for+support+with+one+or+more+of+the+following%3A%0A-+Social+Media+Flyer%0A-+Content+Creation%0A-+Video+Edits+%26+Motion+Graphics%0A-+Social+Media+Management%0A-+Digital+Marketing+%28Ads%29%0A-+Brand+Consultation%0A%0ACould+you+kindly+guide+me+on+your+packages%2C+pricing%2C+and+how+to+get+started%3F&type=phone_number&app_absent=0', '_blank')} >Contact Us Today</div>
             </div>
 
             <div className={footerStyle.rightCtn}>
@@ -47,18 +48,15 @@ const Footer = () => {
                 </div>
 
                 <div className={footerStyle.rightCtnBottomCtn}>
-                    <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273906/DesignGuy-Ltd/19th%20Jan/Frame_56504_msqc3p.svg"
-                        alt="linkedin"
-                    />
-                    <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273906/DesignGuy-Ltd/19th%20Jan/Frame_56503_qyomay.svg"
-                        alt="insta"
-                    />
-                    <img
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1737273906/DesignGuy-Ltd/19th%20Jan/Frame_56502_bhgfng.svg"
-                        alt="x"
-                    />
+                    <a href="https://www.linkedin.com/company/designguyltd/" target="_blank" rel="noopener noreferrer">
+                        <FaLinkedinIn />
+                    </a>
+                    <a href="https://www.instagram.com/designguyltd?igsh=MTFzcHlnN2podjczeA==" target="_blank" rel="noopener noreferrer">
+                        <FaInstagram />
+                    </a>
+                    <a href="https://www.facebook.com/share/1G7TBAjx3X/" target="_blank" rel="noopener noreferrer">
+                        <FaFacebook />
+                    </a>
                 </div>
             </div>
         </footer>
