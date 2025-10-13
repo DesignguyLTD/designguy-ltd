@@ -6,6 +6,10 @@
     padding: 10px;
 }
 
+.everythingText{
+    color: #1A1A1A;
+}
+
 .animatedWord {
     z-index: 1;
     display: inline-block;
@@ -90,6 +94,7 @@
 
 .heroImg1{
     width: 60px;
+    z-index: 10;
     height: 60px;
     position: absolute;
     top: -12px;
@@ -923,6 +928,66 @@
     .logoWrapper {
         width: 80px;
         height: 32px;
+    }
+}
+
+/* Hero Text Animation Styles - Enhanced for Framer Motion */
+.aniText {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    position: relative;
+}
+
+.wordContainer {
+    position: relative;
+    display: inline-block;
+    min-width: 180px; /* Fixed width prevents layout shift */
+    height: 1.2em; /* Fixed height based on font size */
+    overflow: visible; /* Allow 3D transforms to show */
+    vertical-align: baseline;
+    perspective: 1000px; /* Enable 3D perspective for rotateX */
+}
+
+.animatedWord {
+    /*position: absolute;*/
+    top: 0;
+    /*left: 50%;*/
+    transform: translateX(-50%);
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    font-weight: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    transform-style: preserve-3d; /* Enable 3D transforms */
+}
+
+/* Enhanced floating animations for images */
+.heroImg1, .heroImg2, .heroImg3 {
+    will-change: transform; /* Optimize for animations */
+}
+
+/* Responsive word container widths for Framer Motion */
+@media (min-width: 768px) {
+    .wordContainer {
+        min-width: 250px; /* Larger width for tablet */
+        perspective: 1200px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wordContainer {
+        min-width: 350px; /* Even larger width for desktop */
+        perspective: 1400px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .wordContainer {
+        min-width: 450px; /* Maximum width for large screens */
+        perspective: 1600px;
     }
 }
 

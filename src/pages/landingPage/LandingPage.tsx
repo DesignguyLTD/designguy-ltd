@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ButtonI from '../../components/Buttons/ButtonI';
 import ButtonII from '../../components/Buttons/ButtonII';
 import landingStyle from './LandingPage.module.css'
@@ -16,7 +17,6 @@ const LandingPage = () => {
     const [activeSection, setActiveSection] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [animationState, setAnimationState] = useState<'entering' | 'leaving'>('entering');
 
     const words = [
         { text: 'DEFINE', color: '#364c96' },
@@ -24,32 +24,20 @@ const LandingPage = () => {
         { text: 'THINK', color: '#deaaff' }
     ];
 
-    // Word rotation effect with scroll-like transition
+    // Enhanced word rotation with Framer Motion
     useEffect(() => {
-        if (animationState === 'entering') {
-            // When a word has entered, set timer to begin exit animation
-            const enteringTimer = setTimeout(() => {
-                setAnimationState('leaving');
-            }, 3000); // Word stays visible for 3 seconds - increased for better visibility
+        const interval = setInterval(() => {
+            setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }, 3000); // Change word every 3 seconds
 
-            return () => clearTimeout(enteringTimer);
-        } else {
-            // When a word is leaving, prepare to show the next word
-            const leavingTimer = setTimeout(() => {
-                setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-                setAnimationState('entering');
-            }, 800); // Match animation-duration in CSS
-
-            return () => clearTimeout(leavingTimer);
-        }
-    }, [animationState, words.length]);
+        return () => clearInterval(interval);
+    }, [words.length]);
 
     // Show elements when they come into view
     useEffect(() => {
         setIsVisible(true);
         // Start with the first word and 'entering' animation
         setCurrentWordIndex(0);
-        setAnimationState('entering');
     }, []);
 
     useEffect(() => {
@@ -127,39 +115,122 @@ const LandingPage = () => {
             <div className={`${landingStyle.heroSection} ${isVisible ? landingStyle.visible : ''}`}>
                 <div className={landingStyle.heroCtn1}>
                     <div className={landingStyle.heroCtn2}>
-                        <img className={landingStyle.heroImg1}
+                        {/* Floating images with Framer Motion */}
+                        <motion.img
+                            className={landingStyle.heroImg1}
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-2_xe8ixg.svg"
-                            alt="Decoration 1"/>
-                        <img className={landingStyle.heroImg2}
+                            alt="Decoration 1"
+                            animate={{
+                                y: [-10, 10, -10],
+                                rotate: [0, 2, 0, -2, 0]
+                            }}
+                            transition={{
+                                duration: 6,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
+                        <motion.img
+                            className={landingStyle.heroImg2}
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076319/DesignGuy-Ltd/9th%20July/Background_adxwfr.svg"
-                            alt="Decoration 2"/>
-                        <img className={landingStyle.heroImg3}
+                            alt="Decoration 2"
+                            animate={{
+                                y: [10, -15, 10],
+                                rotate: [0, -1, 0, 1, 0]
+                            }}
+                            transition={{
+                                duration: 7,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 1
+                            }}
+                        />
+                        <motion.img
+                            className={landingStyle.heroImg3}
                             src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1752076320/DesignGuy-Ltd/9th%20July/Background-1_lgydnk.svg"
-                            alt="Decoration 3"/>
+                            alt="Decoration 3"
+                            animate={{
+                                y: [-8, 12, -8],
+                                rotate: [0, 1.5, 0, -1.5, 0]
+                            }}
+                            transition={{
+                                duration: 5.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 0.5
+                            }}
+                        />
 
-                        <h1 className={landingStyle.heroText}>
-                           <div className={landingStyle.aniText}> RE
-                               <div className={landingStyle.wordContainer}>
-                                   <span
-                                       key={`${words[currentWordIndex].text}-${animationState}`}
-                                       className={landingStyle.animatedWord}
-                                       style={{
-                                           color: words[currentWordIndex].color,
-                                           animationName: animationState === 'entering'
-                                               ? landingStyle.wordSlideIn
-                                               : landingStyle.wordSlideOut
-                                       }}
-                                   >
-                                    {words[currentWordIndex].text}
-                                   </span>
-                               </div>
+                        <motion.h1
+                            className={landingStyle.heroText}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.3 }}
+                        >
+                            <div className={landingStyle.aniText}>
+                                <motion.span
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.5 }}
+                                >
+                                    RE
+                                </motion.span>
+
+                                <div className={landingStyle.wordContainer}>
+                                    <AnimatePresence mode="wait">
+                                        <motion.span
+                                            key={words[currentWordIndex].text}
+                                            className={landingStyle.animatedWord}
+                                            style={{ color: words[currentWordIndex].color }}
+                                            initial={{
+                                                opacity: 0,
+                                                y: 50,
+                                                scale: 0.8,
+                                                rotateX: -90
+                                            }}
+                                            animate={{
+                                                opacity: 1,
+                                                y: 0,
+                                                scale: 1,
+                                                rotateX: 0
+                                            }}
+                                            exit={{
+                                                opacity: 0,
+                                                y: -50,
+                                                scale: 0.8,
+                                                rotateX: 90
+                                            }}
+                                            transition={{
+                                                duration: 0.6,
+                                                ease: [0.25, 0.46, 0.45, 0.94],
+                                                scale: { duration: 0.4 },
+                                                rotateX: { duration: 0.5 }
+                                            }}
+                                        >
+                                            {words[currentWordIndex].text}
+                                        </motion.span>
+                                    </AnimatePresence>
+                                </div>
                             </div>
-                            EVERYTHING
-                        </h1>
+
+                            <motion.span
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.7 }}
+                                style={{color: 'black'}}
+                            >
+                                EVERYTHING
+                            </motion.span>
+                        </motion.h1>
                     </div>
                 </div>
 
-                <div className={landingStyle.heroCTACtn}>
+                <motion.div
+                    className={landingStyle.heroCTACtn}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 1 }}
+                >
                     <p className={landingStyle.heroCTAText}>
                         Our firm specializes in the development of innovative ideas, products, and experiences designed to enhance brand visibility for reputable organizations within their respective fields.
                     </p>
@@ -167,7 +238,7 @@ const LandingPage = () => {
                        <ButtonI onClick={() => window.open('https://api.whatsapp.com/send/?phone=2349113460989&text=Hello+DesignGuy%21+%EF%BF%BD%0AI+came+across+your+website+and+I%E2%80%99m+really+interested+in+your+services.%0AI%E2%80%99m+looking+for+support+with+one+or+more+of+the+following%3A%0A-+Social+Media+Flyer%0A-+Content+Creation%0A-+Video+Edits+%26+Motion+Graphics%0A-+Social+Media+Management%0A-+Digital+Marketing+%28Ads%29%0A-+Brand+Consultation%0A%0ACould+you+kindly+guide+me+on+your+packages%2C+pricing%2C+and+how+to+get+started%3F&type=phone_number&app_absent=0', '_blank')} />
                         <ButtonII onClick={() => window.location.href = '#/pricing'} />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <div className={landingStyle.pageContainer}>
